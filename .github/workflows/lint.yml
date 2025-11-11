@@ -1,0 +1,44 @@
+name: Lint and Format Check
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop # or the branch you use for PRs
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: Clean npm cache
+        run: npm cache clean --force
+
+      - name: Remove global ESLint (if any)
+        run: npm uninstall -g eslint
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set executable permissions on node_modules/.bin
+        run: chmod -R 755 ./node_modules/.bin
+
+      - name: Check ESLint version with npx
+        run: npx eslint --version
+
+      - name: Debug file permissions
+        run: ls -l ./node_modules/.bin
+
+      - name: Run ESLint
+        run: ./node_modules/.bin/eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0
+
+      - name: Run Prettier
+        run: npx prettier --check .
