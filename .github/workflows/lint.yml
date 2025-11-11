@@ -19,26 +19,26 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Uninstall global ESLint (if any)
+      - name: Clean npm cache
+        run: npm cache clean --force
+
+      - name: Remove global ESLint (if any)
         run: npm uninstall -g eslint
 
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install eslint prettier --save-dev  # Ensure ESLint and Prettier are installed
+        run: npm install
 
       - name: Set executable permissions on node_modules/.bin
-        run: chmod -R +x ./node_modules/.bin
+        run: chmod -R 755 ./node_modules/.bin
 
-      - name: Debug Node.js Environment
-        run: |
-          node -v
-          npm -v
-          ls -l ./node_modules/.bin
-          which eslint
+      - name: Check ESLint version with npx
+        run: npx eslint --version
+
+      - name: Debug file permissions
+        run: ls -l ./node_modules/.bin
 
       - name: Run ESLint
-        run: npx eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0
+        run: ./node_modules/.bin/eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0
 
       - name: Run Prettier
         run: npx prettier --check .
