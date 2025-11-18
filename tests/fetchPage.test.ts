@@ -10,7 +10,7 @@ describe("fetchPage", () => {
     expect(html).toContain("<!DOCTYPE html>");
   });
 
-/*   it("fetches real data when useMock is false", async () => {
+  /*   it("fetches real data when useMock is false", async () => {
     // Type-safe mock: just tell TypeScript this is an AxiosResponse
     const mockHtml = "<html><body>Real page</body></html>";
     mockedAxios.get.mockResolvedValue({ data: mockHtml });
