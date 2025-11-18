@@ -1,0 +1,7 @@
+export interface TravelStatusReponse {
+  travelStatus: string;
+  text: {},
+  statusCode: number;
+  timestamp: string;
+  version: string;
+}
