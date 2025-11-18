@@ -4,7 +4,7 @@
   "description": "��#\u0000 \u0000R\u0000e\u0000j\u0000s\u0000e\u0000s\u0000t\u0000a\u0000t\u0000u\u0000s\u0000A\u0000p\u0000i\u0000\r\u0000 \u0000",
   "main": "index.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
