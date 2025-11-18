@@ -7,7 +7,7 @@ jest.mock("axios");
 describe("fetchPage", () => {
   it("returns mock HTML when useMock is true", async () => {
     const html: string = await fetchPage(true);
-    expect(html).toContain("<!DOCTYPE html>");
+    expect(html).toContain("<!doctype html>");
   });
 
   /*   it("fetches real data when useMock is false", async () => {
