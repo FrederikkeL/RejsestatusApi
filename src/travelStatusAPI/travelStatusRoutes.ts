@@ -1,8 +1,13 @@
 import { Router } from "express";
-import { getAllTravelStatuses } from "./travelStatusController.ts";
+import {
+  getAllTravelStatuses,
+  getTravelStatusByCountry,
+} from "./travelStatusController.ts";
 
 const router = Router();
 
 router.get("/getall", getAllTravelStatuses);
+
+router.get("/get/:country", getTravelStatusByCountry);
 
 export default router;
