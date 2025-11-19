@@ -1,6 +1,7 @@
 export interface TravelStatusReponse {
+  country: string;
   travelStatus: string;
-  text: {},
+  text: { travelAdvice: string; accordionText: string };
   statusCode: number;
   timestamp: string;
   version: string;
