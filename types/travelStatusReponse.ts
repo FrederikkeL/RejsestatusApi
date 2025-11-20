@@ -11,3 +11,9 @@ export interface TravelStatus {
   headingText: string;
   contentText: string;
 }
+
+export interface TravelStatusListResponse {
+  statusCode: number;
+  timestamp: string;
+  countries: TravelStatusReponse[];
+}

@@ -6,6 +6,7 @@ it("getAllTravelStatuses uses mock data correctly", () => {
   const req = {} as Request;
   const res = {
     json: jest.fn(),
+    status: jest.fn().mockReturnThis(),
   } as unknown as Response;
 
   getAllTravelStatuses(req, res);

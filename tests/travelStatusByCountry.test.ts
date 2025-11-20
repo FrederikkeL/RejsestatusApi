@@ -24,12 +24,12 @@ describe("getTravelStatusByCountry", () => {
 
     getTravelStatusByCountry(req as Request, res as Response);
 
-    const expectedTravelStatus = mockTravelStatus.find(
+    const expectedTravelStatus = mockTravelStatus.countries.find(
       (ts) => ts.country.toLowerCase() === "finland",
     );
 
+    expect(statusMock).toHaveBeenCalledWith(200);
     expect(jsonMock).toHaveBeenCalledWith(expectedTravelStatus);
-    expect(statusMock).not.toHaveBeenCalled();
   });
 
   it("returns 404 if the country does not exist", () => {
@@ -39,7 +39,7 @@ describe("getTravelStatusByCountry", () => {
 
     expect(statusMock).toHaveBeenCalledWith(404);
     expect(jsonMock).toHaveBeenCalledWith({
-      message: "travel status not found for nonexistingcountry.",
+      message: "Travel status for NonExistingCountry is not available.",
     });
   });
 });
