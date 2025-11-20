@@ -1,4 +1,4 @@
-import type { TravelStatusReponse } from "../types/travelStatusReponse";
+import type { TravelStatusListResponse } from "../types/travelStatusReponse";
 
 const mockTravelStatus: TravelStatusReponse[] = [
   {
