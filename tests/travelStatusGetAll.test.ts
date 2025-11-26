@@ -1,5 +1,5 @@
-import { getAllTravelStatuses } from "../src/travelStatusAPI/travelStatusController.ts";
-import mockTravelStatus from "../mockData/mockTravelStatus.ts";
+import { getAllTravelStatuses } from "../src/travelStatusAPI/travelStatusController";
+import mockTravelStatus from "../mockData/mockTravelStatus";
 import type { Request, Response } from "express";
 
 it("getAllTravelStatuses uses mock data correctly", () => {

@@ -1,5 +1,5 @@
 import { load } from "cheerio";
-import { fetchPage } from "./fetchPage.ts";
+import { fetchPage } from "./fetchPage";
 
 export async function extractTravelStatus() {
   const html = await fetchPage(true);

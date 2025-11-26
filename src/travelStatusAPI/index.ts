@@ -1,5 +1,5 @@
-import app from "./app.ts";
-import router from "./travelStatusRoutes.ts";
+import app from "./app";
+import router from "./travelStatusRoutes";
 
 app.use("/travelstatus", router);
 

@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import mockTravelStatus from "../../mockData/mockTravelStatus.ts";
+import mockTravelStatus from "../../mockData/mockTravelStatus";
 
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   //missing logic for get all travel statuses

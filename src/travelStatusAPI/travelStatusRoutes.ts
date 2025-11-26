@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
   getAllTravelStatuses,
   getTravelStatusByCountry,
-} from "./travelStatusController.ts";
+} from "./travelStatusController";
 
 const router = Router();
 

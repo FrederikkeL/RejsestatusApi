@@ -1,5 +1,5 @@
 import express from "express";
-import router from "./travelStatusRoutes.ts";
+import router from "./travelStatusRoutes";
 
 const app = express();
 
