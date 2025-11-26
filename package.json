@@ -5,7 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "test": "jest --coverage",
-    "dev": "npx ts-node src/travelStatusAPI/index.ts"
+    "dev": "npx ts-node src/travelStatusAPI/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
