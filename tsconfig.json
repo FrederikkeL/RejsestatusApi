@@ -8,5 +8,6 @@
     "allowImportingTsExtensions": true,
     "emitDeclarationOnly": true,
     "composite": true
-  }
+  },
+  "include": ["src"]
 }
