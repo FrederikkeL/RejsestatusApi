@@ -1,2 +1,3 @@
 import { extractTravelStatus } from "./extractTravelStatus.ts";
-console.log(extractTravelStatus());
+
+console.log(await extractTravelStatus("KZ"));

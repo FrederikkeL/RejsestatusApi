@@ -26,23 +26,22 @@ describe("extractTravelStatus", () => {
 
     mockedFetchPage.mockResolvedValue(sampleHtml);
 
-    const result = await extractTravelStatus();
+    const result = await extractTravelStatus("test", true);
 
     expect(result.country).toBe("Thailand");
-    expect(result.timestamp).toBe("Updated: 19 November 2025");
-    expect(result.statusCode).toBe(200);
-    expect(result.version).toBe("1.0.0");
+    expect(result.updatedTimeUM).toBe("Updated: 19 November 2025");
+    expect(result.httpCodeUM).toBe(200);
 
-    expect(result.travelStatus).toHaveLength(2);
+    expect(result.travelStatuses).toHaveLength(2);
 
-    expect(result.travelStatus[0]).toEqual({
-      status: "low",
+    expect(result.travelStatuses[0]).toEqual({
+      travelStatus: "low",
       headingText: "Vær ekstra forsigtig:Hele landet",
       contentText: "Hold dig opdateret via myndighederne.",
     });
 
-    expect(result.travelStatus[1]).toEqual({
-      status: "high",
+    expect(result.travelStatuses[1]).toEqual({
+      travelStatus: "high",
       headingText: "Vi fraråder alle rejser til:Grænseområdet",
       contentText: "Meget høj sikkerhedsrisiko.",
     });

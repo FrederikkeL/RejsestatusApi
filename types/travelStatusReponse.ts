@@ -11,6 +11,7 @@ export interface CountryResponse {
   updatedTimeUM: string;
   travelStatuses: TravelStatus[];
 }
+
 export interface TravelStatus {
   travelStatus: string;
   headingText: string;
