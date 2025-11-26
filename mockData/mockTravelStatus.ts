@@ -1,50 +1,48 @@
-import type { TravelStatusListResponse } from "../types/travelStatusReponse";
+import type { CountryListResponse } from "../types/travelStatusReponse";
 
-const mockTravelStatus: TravelStatusListResponse = {
-  statusCode: 200,
-  timestamp: "2023-10-01T12:00:00Z",
+const mockTravelStatus: CountryListResponse = {
+  httpCode: 200,
+  retrievedTime: "2023-10-01T12:00:00Z",
+  version: "1.0.0",
   countries: [
     {
       country: "Finland",
-      travelStatus: [
+      travelStatuses: [
         {
-          status: "minimal",
+          travelStatus: "minimal",
           headingText: "Vær opmærksom: Hele landet",
           contentText:
             "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark.",
         },
       ],
-      statusCode: 200,
-      timestamp: "2023-10-01T12:00:00Z",
-      version: "1.0.0",
+      httpCodeUM: 200,
+      updatedTimeUM: "2023-10-01T12:00:00Z",
     },
     {
       country: "Sverige",
-      travelStatus: [
+      travelStatuses: [
         {
-          status: "low",
+          travelStatus: "low",
           headingText: "Vær opmærksom: Hele landet",
           contentText:
             "Vær til enhver tid opmærksom på din personlige sikkerhed og hold dig opdateret om udviklingen via de lokale myndigheder, nyhedsmedierne og dit rejsebureau.",
         },
       ],
-      statusCode: 200,
-      timestamp: "2023-10-01T12:05:00Z",
-      version: "1.0.0",
+      httpCodeUM: 200,
+      updatedTimeUM: "2023-10-01T12:05:00Z",
     },
     {
       country: "Ukraine",
-      travelStatus: [
+      travelStatuses: [
         {
-          status: "high",
+          travelStatus: "high",
           headingText: "Vi fraråder alle rejser til: Hele landet.",
           contentText:
             "Meget høj sikkerhedsrisiko. Hvis du vælger at rejse, bør du søge professionel rådgivning.",
         },
       ],
-      statusCode: 200,
-      timestamp: "2023-10-01T12:10:00Z",
-      version: "1.0.0",
+      httpCodeUM: 200,
+      updatedTimeUM: "2023-10-01T12:10:00Z",
     },
   ],
 };
