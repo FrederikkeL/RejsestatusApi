@@ -7,7 +7,6 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowImportingTsExtensions": true,
-    "emitDeclarationOnly": true,
     "composite": true
   },
   "include": ["src", "types", "mockData"]
