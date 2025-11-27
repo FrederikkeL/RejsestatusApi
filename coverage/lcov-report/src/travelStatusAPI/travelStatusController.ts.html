@@ -225,6 +225,7 @@ export const getAllTravelStatuses = (req: Request, res: Response) =&gt; {
     });
   }
   switch (mockTravelStatus.httpCode) {
+  switch (mockTravelStatus.httpCode) {
     case 200:
       res.status(200).json(mockTravelStatus);
       break;
@@ -263,6 +264,7 @@ export const getTravelStatusByCountry = (req: Request, res: Response) =&gt; {
       message: `Travel status for ${req.params.country} is not available.`,
     });
   }
+  switch (status.httpCodeUM) {
   switch (status.httpCodeUM) {
     case 200:
       res.status(200).json(status);
