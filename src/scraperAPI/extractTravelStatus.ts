@@ -1,9 +1,9 @@
 import { load } from "cheerio";
-import { fetchPage } from "./fetchPage.ts";
+import { fetchPage } from "./fetchPage";
 import type {
   CountryResponse,
   TravelStatus,
-} from "../../types/travelStatusReponse.ts";
+} from "../../types/travelStatusReponse";
 
 export async function extractTravelStatus(countryCode: string, useMock = true) {
   const html = await fetchPage(countryCode, useMock);
