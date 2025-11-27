@@ -114,6 +114,7 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,7 +165,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { CountryListResponse } from "../types/travelStatusReponse";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { CountryListResponse } from "../types/travelStatusReponse";
 &nbsp;
+const mockTravelStatus: CountryListResponse = {
+  httpCode: 200,
+  retrievedTime: "2023-10-01T12:00:00Z",
+  version: "1.0.0",
 const mockTravelStatus: CountryListResponse = {
   httpCode: 200,
   retrievedTime: "2023-10-01T12:00:00Z",
@@ -173,7 +179,9 @@ const mockTravelStatus: CountryListResponse = {
     {
       country: "Finland",
       travelStatuses: [
+      travelStatuses: [
         {
+          travelStatus: "minimal",
           travelStatus: "minimal",
           headingText: "Vær opmærksom: Hele landet",
           contentText:
@@ -182,11 +190,15 @@ const mockTravelStatus: CountryListResponse = {
       ],
       httpCodeUM: 200,
       updatedTimeUM: "2023-10-01T12:00:00Z",
+      httpCodeUM: 200,
+      updatedTimeUM: "2023-10-01T12:00:00Z",
     },
     {
       country: "Sverige",
       travelStatuses: [
+      travelStatuses: [
         {
+          travelStatus: "low",
           travelStatus: "low",
           headingText: "Vær opmærksom: Hele landet",
           contentText:
@@ -195,17 +207,23 @@ const mockTravelStatus: CountryListResponse = {
       ],
       httpCodeUM: 200,
       updatedTimeUM: "2023-10-01T12:05:00Z",
+      httpCodeUM: 200,
+      updatedTimeUM: "2023-10-01T12:05:00Z",
     },
     {
       country: "Ukraine",
       travelStatuses: [
+      travelStatuses: [
         {
+          travelStatus: "high",
           travelStatus: "high",
           headingText: "Vi fraråder alle rejser til: Hele landet.",
           contentText:
             "Meget høj sikkerhedsrisiko. Hvis du vælger at rejse, bør du søge professionel rådgivning.",
         },
       ],
+      httpCodeUM: 200,
+      updatedTimeUM: "2023-10-01T12:10:00Z",
       httpCodeUM: 200,
       updatedTimeUM: "2023-10-01T12:10:00Z",
     },

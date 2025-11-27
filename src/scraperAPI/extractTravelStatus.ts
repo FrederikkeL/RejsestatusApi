@@ -1,8 +1,12 @@
 import { load } from "cheerio";
-import { fetchPage } from "./fetchPage";
+import { fetchPage } from "./fetchPage.ts";
+import type {
+  CountryResponse,
+  TravelStatus,
+} from "../../types/travelStatusReponse.ts";
 
-export async function extractTravelStatus() {
-  const html = await fetchPage(true);
+export async function extractTravelStatus(countryCode: string, useMock = true) {
+  const html = await fetchPage(countryCode, useMock);
   const $ = load(html);
 
   const time = $(".col-8").text();
@@ -12,31 +16,30 @@ export async function extractTravelStatus() {
   const container = $(
     ".module-text-accordion-content.module-travel-advice-labels",
   );
-  const sections = [];
+  const sections: TravelStatus[] = [];
 
   container.children("h2").each((i, h2) => {
     const heading = $(h2);
 
     const classList = heading.attr("class") || "";
     const match = classList.match(/module-travel-advice-(minimal|low|high)/);
-    const status = match ? match[1] : null;
+    const travelStatus = match ? match[1] : null;
     let sibling = heading.next();
     while (sibling.length && sibling[0].type !== "tag") {
       sibling = sibling.next();
     }
 
     sections.push({
-      status,
+      travelStatus,
       headingText: heading.text().trim() || "",
       contentText: sibling.text().trim() || "",
     });
   });
-  const travelResponse = {
+  const countryResponse: CountryResponse = {
     country: contryName.trim(),
-    travelStatus: sections,
-    statusCode: 200,
-    timestamp: time,
-    version: "1.0.0",
+    travelStatuses: sections,
+    httpCodeUM: 200,
+    updatedTimeUM: time,
   };
-  return travelResponse;
+  return countryResponse;
 }
