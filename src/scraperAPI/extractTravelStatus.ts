@@ -5,10 +5,12 @@ import type {
   TravelStatus,
 } from "../../types/travelStatusReponse";
 
-export async function extractTravelStatus(countryCode: string, useMock = true) {
+export async function extractTravelStatus(
+  countryCode: string,
+  useMock: boolean,
+) {
   const html = await fetchPage(countryCode, useMock);
   const $ = load(html);
-
   const time = $(".col-8").text();
 
   const contryName = $(".page-title").text();

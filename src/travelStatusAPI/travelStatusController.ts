@@ -1,6 +1,8 @@
 import type { Request, Response } from "express";
 import mockTravelStatus from "../../mockData/mockTravelStatus";
+import { extractTravelStatus } from "../scraperAPI/extractTravelStatus";
 
+const mock = false;
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   //missing logic for get all travel statuses
 
@@ -37,12 +39,17 @@ export const getAllTravelStatuses = (req: Request, res: Response) => {
   }
 };
 
-export const getTravelStatusByCountry = (req: Request, res: Response) => {
+export const getTravelStatusByCountry = async (req: Request, res: Response) => {
   const country = req.params.country.toLowerCase();
-  //missing logic for get all travel statuses
-  const status = mockTravelStatus.countries.find(
-    (ts) => ts.country.toLowerCase() === country,
-  );
+  var status = null;
+  if (mock) {
+    status = mockTravelStatus.countries.find(
+      (ts) => ts.country.toLowerCase() === country,
+    );
+  } else {
+    status = await extractTravelStatus(country, false);
+  }
+
   if (!status) {
     return res.status(404).json({
       message: `Travel status for ${req.params.country} is not available.`,

@@ -1,6 +1,6 @@
 import fs from "fs";
 import axios from "axios";
-import { readFileSync } from "fs";
+import path from "path";
 
 // Helper to get the mock file path depending on environment
 function getMockFilePath() {
@@ -9,7 +9,7 @@ function getMockFilePath() {
     return "mockData/mockCambodja.html";
   } else {
     // Running normally — back out a few directories
-    return "../../mockData/mockCambodja.html";
+    return "mockData/mockCambodja.html";
   }
 }
 
@@ -35,7 +35,8 @@ export async function fetchPage(countryCode: string, useMock: boolean) {
 }
 
 export function findCountryPathKey(countryCode: string) {
-  const pathKeys = JSON.parse(readFileSync("./countryPathKeys.json", "utf-8"));
+  const jsonPath = path.resolve(__dirname, "countryPathKeys.json");
+  const pathKeys = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
   return pathKeys.find(
     (key) => key.code.toLowerCase() === countryCode.toLowerCase(),
   )?.pathKey;

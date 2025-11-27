@@ -1,6 +1,5 @@
 import { extractTravelStatus } from "./extractTravelStatus";
 
-async function main() {
-  console.log(await extractTravelStatus("KZ"));
+async function main(useMock) {
+  console.log(await extractTravelStatus("KZ", useMock));
 }
-main();
