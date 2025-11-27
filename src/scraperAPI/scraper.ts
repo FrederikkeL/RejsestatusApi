@@ -1,3 +1,6 @@
-import { extractTravelStatus } from "./extractTravelStatus.ts";
+import { extractTravelStatus } from "./extractTravelStatus";
 
-console.log(await extractTravelStatus("KZ"));
+async function main() {
+  console.log(await extractTravelStatus("KZ"));
+}
+main();
