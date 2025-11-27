@@ -1,2 +1,2 @@
-import { extractTravelStatus } from "./extractTravelStatus.ts";
+import { extractTravelStatus } from "./extractTravelStatus";
 console.log(extractTravelStatus());
