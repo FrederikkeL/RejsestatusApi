@@ -1,5 +1,5 @@
-import { extractTravelStatus } from "../src/scraperAPI/extractTravelStatus";
-import { fetchPage } from "../src/scraperAPI/fetchPage";
+import { extractTravelStatus } from "../src/scraper/extractTravelStatus";
+import { fetchPage } from "../src/scraper/fetchPage";
 
 // Mock fetchPage
 jest.mock("../src/scraperAPI/fetchPage");
