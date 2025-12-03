@@ -26,6 +26,7 @@
     "axios": "^1.13.2",
     "cheerio": "^1.1.2",
     "express": "^5.1.0",
+    "node-cron": "^4.2.1",
     "puppeteer": "^24.29.1"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "@types/express": "^5.0.5",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.10.0",
+    "@types/node-cron": "^3.0.11",
     "babel-jest": "^30.2.0",
     "copyfiles": "^2.4.1",
     "eslint": "^9.39.1",

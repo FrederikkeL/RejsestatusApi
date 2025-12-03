@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.extractTravelStatus = extractTravelStatus;
 const cheerio_1 = require("cheerio");
 const fetchPage_1 = require("./fetchPage");
-async function extractTravelStatus(countryCode, useMock = true) {
+async function extractTravelStatus(countryCode, useMock) {
     const html = await (0, fetchPage_1.fetchPage)(countryCode, useMock);
     const $ = (0, cheerio_1.load)(html);
     const time = $(".col-8").text();

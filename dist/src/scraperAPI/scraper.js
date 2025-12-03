@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const extractTravelStatus_1 = require("./extractTravelStatus");
+require("../scheduler/scraperScheduler");
 async function main() {
-    console.log(await (0, extractTravelStatus_1.extractTravelStatus)("KZ"));
+    console.log("sraper has started");
 }
 main();

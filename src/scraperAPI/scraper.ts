@@ -1,5 +1,7 @@
-import { extractTravelStatus } from "./extractTravelStatus";
+import "../scheduler/scraperScheduler";
 
-async function main(useMock) {
-  console.log(await extractTravelStatus("KZ", useMock));
+async function main() {
+  console.log("sraper has started");
 }
+
+main();
