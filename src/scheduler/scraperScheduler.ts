@@ -25,7 +25,6 @@ cron.schedule("*/30 * * * * *", async () => {
   countryListResponse.retrievedTime = new Date().toISOString();
   countryListResponse.version = "1.0.0";
   cacheJSON(countryListResponse);
-  return countryListResponse;
 });
 
 function runScraperHourly(countryCode: string) {
