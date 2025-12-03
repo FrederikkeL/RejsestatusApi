@@ -1,0 +1,26 @@
+[
+  {
+    "code": "FI",
+    "english": "Finland",
+    "danish": "Finland",
+    "pathKey": "finland"
+  },
+  {
+    "code": "FR",
+    "english": "France",
+    "danish": "Frankrig",
+    "pathKey": "frankrig"
+  },
+  {
+    "code": "NL",
+    "english": "Netherlands",
+    "danish": "Holland",
+    "pathKey": "nederlandene"
+  },
+  {
+    "code": "SE",
+    "english": "Sweden",
+    "danish": "Sverige",
+    "pathKey": "sverige"
+  }
+]

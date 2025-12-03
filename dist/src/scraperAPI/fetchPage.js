@@ -7,7 +7,7 @@ exports.fetchPage = fetchPage;
 exports.findCountryPathKey = findCountryPathKey;
 const fs_1 = __importDefault(require("fs"));
 const axios_1 = __importDefault(require("axios"));
-const fs_2 = require("fs");
+const path_1 = __importDefault(require("path"));
 // Helper to get the mock file path depending on environment
 function getMockFilePath() {
     if (process.env.JEST_WORKER_ID !== undefined) {
@@ -16,7 +16,7 @@ function getMockFilePath() {
     }
     else {
         // Running normally — back out a few directories
-        return "../../mockData/mockCambodja.html";
+        return "mockData/mockCambodja.html";
     }
 }
 // Load mock data once
@@ -36,6 +36,7 @@ async function fetchPage(countryCode, useMock) {
     return response.data;
 }
 function findCountryPathKey(countryCode) {
-    const pathKeys = JSON.parse((0, fs_2.readFileSync)("./countryPathKeys.json", "utf-8"));
+    const jsonPath = path_1.default.resolve(__dirname, "countryPathKeys.json");
+    const pathKeys = JSON.parse(fs_1.default.readFileSync(jsonPath, "utf-8"));
     return pathKeys.find((key) => key.code.toLowerCase() === countryCode.toLowerCase())?.pathKey;
 }

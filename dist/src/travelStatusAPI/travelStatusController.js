@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTravelStatusByCountry = exports.getAllTravelStatuses = void 0;
 const mockTravelStatus_1 = __importDefault(require("../../mockData/mockTravelStatus"));
+const extractTravelStatus_1 = require("../scraperAPI/extractTravelStatus");
+const mock = false;
 const getAllTravelStatuses = (req, res) => {
     //missing logic for get all travel statuses
     if (!mockTravelStatus_1.default) {
@@ -38,10 +40,15 @@ const getAllTravelStatuses = (req, res) => {
     }
 };
 exports.getAllTravelStatuses = getAllTravelStatuses;
-const getTravelStatusByCountry = (req, res) => {
+const getTravelStatusByCountry = async (req, res) => {
     const country = req.params.country.toLowerCase();
-    //missing logic for get all travel statuses
-    const status = mockTravelStatus_1.default.countries.find((ts) => ts.country.toLowerCase() === country);
+    var status = null;
+    if (mock) {
+        status = mockTravelStatus_1.default.countries.find((ts) => ts.country.toLowerCase() === country);
+    }
+    else {
+        status = await (0, extractTravelStatus_1.extractTravelStatus)(country, false);
+    }
     if (!status) {
         return res.status(404).json({
             message: `Travel status for ${req.params.country} is not available.`,
