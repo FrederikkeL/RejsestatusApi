@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import mockTravelStatus from "../../mockData/mockTravelStatus";
-import { extractTravelStatus } from "../scraperAPI/extractTravelStatus";
+import { extractTravelStatus } from "../scraper/extractTravelStatus";
 
 const mock = false;
 export const getAllTravelStatuses = (req: Request, res: Response) => {

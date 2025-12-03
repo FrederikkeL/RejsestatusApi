@@ -1,9 +1,9 @@
 import cron from "node-cron";
 import path from "path";
 import fs from "fs";
-import { extractTravelStatus } from "../scraperAPI/extractTravelStatus";
+import { extractTravelStatus } from "../scraper/extractTravelStatus";
 import type { CountryListResponse } from "../../types/travelStatusReponse";
-import { cacheJSON } from "../scraperAPI/caching";
+import { cacheJSON } from "../scraper/caching";
 
 const jsonPath = path.resolve(
   __dirname,
