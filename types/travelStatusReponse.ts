@@ -8,6 +8,7 @@ export interface CountryListResponse {
 export interface CountryResponse {
   country: string;
   httpCodeUM: number;
+  errorMessage?: string;
   updatedTimeUM: string;
   travelStatuses: TravelStatus[];
 }

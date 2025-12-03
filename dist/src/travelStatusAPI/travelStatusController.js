@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTravelStatusByCountry = exports.getAllTravelStatuses = void 0;
 const mockTravelStatus_1 = __importDefault(require("../../mockData/mockTravelStatus"));
-const extractTravelStatus_1 = require("../scraperAPI/extractTravelStatus");
+const extractTravelStatus_1 = require("../scraper/extractTravelStatus");
 const mock = false;
 const getAllTravelStatuses = (req, res) => {
     //missing logic for get all travel statuses

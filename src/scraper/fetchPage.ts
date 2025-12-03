@@ -26,12 +26,30 @@ export async function fetchPage(countryCode: string, useMock: boolean) {
 
   const countrypathKey = findCountryPathKey(countryCode);
 
-  const url =
-    "https://um.dk/rejse-og-ophold/rejse-til-udlandet/rejsevejledninger/" +
-    countrypathKey;
-  const response = await axios.get(url);
-  console.log("➡ Fetched real HTML from:", url);
-  return response.data;
+  if (!countrypathKey) {
+    return "emptykey";
+  }
+
+  try {
+    const url =
+      "https://um.dk/rejse-og-ophold/rejse-til-udlandet/rejsevejledninger/" +
+      countrypathKey;
+
+    const response = await axios.get(url);
+    console.log("➡ Fetched real HTML from:", url);
+    return response.data;
+  } catch (err: any) {
+    if (axios.isAxiosError(err)) {
+      if (err.response?.status === 404) {
+        return "notfound";
+      }
+      if (err.response?.status === 500) {
+        return "servererror";
+      }
+      console.error("Unexpected error:", err);
+      throw err;
+    }
+  }
 }
 
 export function findCountryPathKey(countryCode: string) {
