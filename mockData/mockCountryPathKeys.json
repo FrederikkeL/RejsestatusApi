@@ -6,21 +6,27 @@
     "pathKey": "finland"
   },
   {
-    "code": "FR",
-    "english": "France",
-    "danish": "Frankrig",
-    "pathKey": "frankrig"
+    "code": "AD",
+    "english": "Andorra",
+    "danish": "Andorra",
+    "pathKey": "andorra"
   },
   {
-    "code": "NL",
+    "code": "NulPathKey",
+    "english": "Andorra",
+    "danish": "Andorra",
+    "pathKey": null
+  },
+  {
+    "code": "EmptyPathKey",
     "english": "Netherlands",
     "danish": "Holland",
-    "pathKey": "nederlandene"
+    "pathKey": ""
   },
   {
-    "code": "SE",
+    "code": "NotValidPathkey",
     "english": "Sweden",
     "danish": "Sverige",
-    "pathKey": "sverige"
+    "pathKey": "eggfjeo"
   }
 ]

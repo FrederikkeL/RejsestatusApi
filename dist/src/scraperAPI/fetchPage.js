@@ -16,7 +16,7 @@ function getMockFilePath() {
     }
     else {
         // Running normally — back out a few directories
-        return "mockData/mockCambodja.html";
+        return "mockData/mockAndorra.html";
     }
 }
 // Load mock data once
@@ -28,11 +28,12 @@ async function fetchPage(countryCode, useMock) {
         console.log("➡ Using mock HTML instead of real API call");
         return mockdata;
     }
-    const countrypathKey = findCountryPathKey(countryCode);
+    const countrypathKey = findCountryPathKey("AD");
     const url = "https://um.dk/rejse-og-ophold/rejse-til-udlandet/rejsevejledninger/" +
         countrypathKey;
     const response = await axios_1.default.get(url);
     console.log("➡ Fetched real HTML from:", url);
+    console.log(response.data);
     return response.data;
 }
 function findCountryPathKey(countryCode) {
