@@ -20,7 +20,7 @@ describe("getTravelStatusByCountry", () => {
   });
 
   it("returns the correct travel status for an existing country", () => {
-    req.params = { country: "Finland" };
+    req.params = { country: "FI" };
 
     getTravelStatusByCountry(req as Request, res as Response);
 

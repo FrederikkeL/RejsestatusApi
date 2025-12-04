@@ -9,7 +9,7 @@ export async function extractTravelStatus(
   countryCode: string,
   useMock: boolean,
 ) {
-  let countryResponse: CountryResponse = {
+  const countryResponse: CountryResponse = {
     country: "",
     travelStatuses: [],
     httpCodeUM: 0,
@@ -38,9 +38,9 @@ export async function extractTravelStatus(
 
   const $ = load(html);
 
-  let pageTitle = extractPageTitle($);
-  let travelStatuses = extractStatuses($);
-  let updatedTimeUM = $(".col-8").text().trim();
+  const pageTitle = extractPageTitle($);
+  const travelStatuses = extractStatuses($);
+  const updatedTimeUM = $(".col-8").text().trim();
 
   if (
     pageTitle.toLowerCase().includes("vi har ingen rejsevejledning for") ||
@@ -60,7 +60,7 @@ export async function extractTravelStatus(
 }
 
 function extractPageTitle($: CheerioAPI): string {
-  let name = $(".page-title").text().trim();
+  const name = $(".page-title").text().trim();
   return name;
 }
 

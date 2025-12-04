@@ -1,6 +1,6 @@
 import fs from "fs";
 import axios from "axios";
-import path from "path";
+import { findPathKeyByCode } from "../helpers/pathKeysHelpers";
 
 // Helper to get the mock file path depending on environment
 function getMockFilePath() {
@@ -24,7 +24,7 @@ export async function fetchPage(countryCode: string, useMock: boolean) {
     return mockdata;
   }
 
-  const countrypathKey = findCountryPathKey(countryCode);
+  const countrypathKey = findPathKeyByCode(countryCode);
 
   if (!countrypathKey) {
     return "emptykey";
@@ -38,7 +38,7 @@ export async function fetchPage(countryCode: string, useMock: boolean) {
     const response = await axios.get(url);
     console.log("➡ Fetched real HTML from:", url);
     return response.data;
-  } catch (err: any) {
+  } catch (err) {
     if (axios.isAxiosError(err)) {
       if (err.response?.status === 404) {
         return "notfound";
@@ -50,12 +50,4 @@ export async function fetchPage(countryCode: string, useMock: boolean) {
       throw err;
     }
   }
-}
-
-export function findCountryPathKey(countryCode: string) {
-  const jsonPath = path.resolve(__dirname, "countryPathKeys.json");
-  const pathKeys = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
-  return pathKeys.find(
-    (key) => key.code.toLowerCase() === countryCode.toLowerCase(),
-  )?.pathKey;
 }
