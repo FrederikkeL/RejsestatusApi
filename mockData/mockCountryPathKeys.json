@@ -28,5 +28,11 @@
     "english": "Sweden",
     "danish": "Sverige",
     "pathKey": "eggfjeo"
+  },
+  {
+    "code": "CA",
+    "english": "Cambodia",
+    "danish": "Cambodja",
+    "pathKey": "cambodja"
   }
 ]

@@ -1,10 +1,10 @@
-const { extractTravelStatus } = require("./extractTravelStatus");
-const { cacheJSON } = require("./caching");
+import { extractTravelStatus } from "./extractTravelStatus";
+import { cacheJSON } from "../caching/caching";
 import type { CountryListResponse } from "../../types/travelStatusReponse";
 import "../scheduler/scraperScheduler";
 
 async function main(useMock) {
-    console.log("scraper has started");
+  console.log("scraper has started");
   var countryListResponse: CountryListResponse = null;
   if (useMock) {
     const country = await extractTravelStatus("FI", useMock);
@@ -16,7 +16,13 @@ async function main(useMock) {
       countries: [country, country2],
     };
   } else {
-    countryListResponse = await extractTravelStatus("FI", useMock);
+    const country = await extractTravelStatus("FI", useMock);
+    countryListResponse = {
+      httpCode: 200,
+      retrievedTime: new Date().toISOString(),
+      version: "1.0.0",
+      countries: [country],
+    };
     cacheJSON(countryListResponse);
   }
 }
