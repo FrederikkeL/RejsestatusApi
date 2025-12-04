@@ -3,10 +3,6 @@ import {
   findDanishNameByCode,
   findMockDanishNameByCode,
 } from "../helpers/pathKeysHelpers";
-import {
-  findDanishNameByCode,
-  findMockDanishNameByCode,
-} from "../helpers/pathKeysHelpers";
 import mockTravelStatus from "../../mockData/mockTravelStatus";
 import path from "path";
 import fs from "fs";
@@ -27,41 +23,42 @@ export const getAllTravelStatuses = (req: Request, res: Response) => {
     countryListResponse = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
   }
   if (!countryListResponse) {
-  if (mock) {
-    countryListResponse = mockTravelStatus;
-  } else {
-    countryListResponse = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
-  }
-  if (!countryListResponse) {
-    res.status(404).json({
-      message: "Travel statuses are not available.",
-    });
-  }
-  switch (countryListResponse.httpCode) {
-    case 200:
-      res.status(200).json(countryListResponse);
-      break;
-    case 500:
-      res.status(500).json({
-        message:
-          "Udenrigsministeriet's website is down, can't show travel statuses currently.",
-      });
-      break;
-    case 503:
-      res.status(503).json({
-        message:
-          "Travel status service is down, can't show travel statuses currently.",
-      });
-      break;
-    case 404:
+    if (mock) {
+      countryListResponse = mockTravelStatus;
+    } else {
+      countryListResponse = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+    }
+    if (!countryListResponse) {
       res.status(404).json({
         message: "Travel statuses are not available.",
       });
-      break;
-    default:
-      res.status(500).json({
-        message: "An unexpected error occurred.",
-      });
+    }
+    switch (countryListResponse.httpCode) {
+      case 200:
+        res.status(200).json(countryListResponse);
+        break;
+      case 500:
+        res.status(500).json({
+          message:
+            "Udenrigsministeriet's website is down, can't show travel statuses currently.",
+        });
+        break;
+      case 503:
+        res.status(503).json({
+          message:
+            "Travel status service is down, can't show travel statuses currently.",
+        });
+        break;
+      case 404:
+        res.status(404).json({
+          message: "Travel statuses are not available.",
+        });
+        break;
+      default:
+        res.status(500).json({
+          message: "An unexpected error occurred.",
+        });
+    }
   }
 };
 
