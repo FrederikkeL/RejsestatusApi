@@ -12,7 +12,7 @@ export default defineConfig([
       tseslint.configs.stylistic,
       eslintConfigPrettier,
     ],
-    
+    ignores: ["dist/**", "node_modules/**"],
   },
   {
     // Configuration for specific files (e.g., ignore specific folders)
