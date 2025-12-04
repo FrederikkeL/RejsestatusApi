@@ -20,7 +20,7 @@ export function findDanishNameByCode(countryCode: string) {
 export function findMockDanishNameByCode(countryCode: string) {
   const jsonPath = path.resolve(
     __dirname,
-    "../../../mockData/mockCountryPathKeys.json",
+    "../../mockData/mockCountryPathKeys.json",
   );
   const countries = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
   return countries.find(

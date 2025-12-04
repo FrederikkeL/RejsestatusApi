@@ -12,7 +12,7 @@ import {
 } from "../../types/travelStatusReponse";
 
 const dataPath = path.resolve(__dirname, "../caching/data.json");
-const mock = false;
+const mock = process.env.NODE_ENV === "test";
 
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   let countryListResponse: CountryListResponse;
