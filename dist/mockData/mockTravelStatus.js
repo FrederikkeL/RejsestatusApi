@@ -41,6 +41,23 @@ const mockTravelStatus = {
             httpCodeUM: 200,
             updatedTimeUM: "2023-10-01T12:10:00Z",
         },
+        {
+            country: "Cambodja",
+            travelStatuses: [
+                {
+                    travelStatus: "low",
+                    headingText: "Vær ekstra forsigtig:\n                      Hele landet undtagen området i den røde\n                        bjælke.",
+                    contentText: "Vær til enhver tid opmærksom på din\n                      personlige sikkerhed og hold dig opdateret om udviklingen\n                      via de lokale myndigheder, nyhedsmedierne og dit\n                      rejsebureau.",
+                },
+                {
+                    travelStatus: "high",
+                    headingText: "Vi fraråder alle rejser til:\n                      Grænseområdet til Thailand i en zone\n                        på 20 km fra grænsen.",
+                    contentText: "Meget høj sikkerhedsrisiko. Hvis du vælger at\n                      rejse, bør du søge professionel\n                      rådgivning.",
+                },
+            ],
+            httpCodeUM: 200,
+            updatedTimeUM: "\n                      Rejsevejledning opdateret: 10.11.2025 Kl. 12:38\n                    ",
+        },
     ],
 };
 exports.default = mockTravelStatus;
