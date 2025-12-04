@@ -12,10 +12,11 @@ export default defineConfig([
       tseslint.configs.stylistic,
       eslintConfigPrettier,
     ],
+    ignores: ["dist/**", "node_modules/**"],
   },
   {
     // Configuration for specific files (e.g., ignore specific folders)
-    files: [".github/workflows", "node_modules", ".dist"],
+    files: ["tests/**/*.ts"],
     rules: {
       "no-console": "off",
       "no-unused-vars": "off",
