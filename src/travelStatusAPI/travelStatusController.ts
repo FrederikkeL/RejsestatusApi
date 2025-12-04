@@ -1,19 +1,24 @@
 import type { Request, Response } from "express";
 import mockTravelStatus from "../../mockData/mockTravelStatus";
-import { extractTravelStatus } from "../scraper/extractTravelStatus";
-
+import path from "path";
+import fs from "fs";
+ const dataPath = path.resolve(__dirname, "../scraper/data.json");
 const mock = false;
 export const getAllTravelStatuses = (req: Request, res: Response) => {
-  //missing logic for get all travel statuses
-
-  if (!mockTravelStatus) {
+  var travelStatus;
+  if (mock) {
+    travelStatus = mockTravelStatus;
+  } else {
+    travelStatus = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+  }
+  if (!travelStatus) {
     res.status(404).json({
       message: "Travel statuses are not available.",
     });
   }
-  switch (mockTravelStatus.httpCode) {
+  switch (travelStatus.httpCode) {
     case 200:
-      res.status(200).json(mockTravelStatus);
+      res.status(200).json(travelStatus);
       break;
     case 500:
       res.status(500).json({
@@ -47,7 +52,11 @@ export const getTravelStatusByCountry = async (req: Request, res: Response) => {
       (ts) => ts.country.toLowerCase() === country,
     );
   } else {
-    status = await extractTravelStatus(country, false);
+
+    const countries = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+    return countries.find(
+      (key) => key.code.toLowerCase() === country.toLowerCase(),
+    )?.pathKey;
   }
 
   if (!status) {
