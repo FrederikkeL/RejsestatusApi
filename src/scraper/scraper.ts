@@ -5,7 +5,7 @@ import "../scheduler/scraperScheduler";
 
 async function main(useMock) {
   console.log("scraper has started");
-  var countryListResponse: CountryListResponse = null;
+  let countryListResponse: CountryListResponse = null;
   if (useMock) {
     const country = await extractTravelStatus("FI", useMock);
     const country2 = await extractTravelStatus("FI", useMock);
