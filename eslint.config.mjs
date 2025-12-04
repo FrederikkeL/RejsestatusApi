@@ -1,8 +1,10 @@
 import eslint from "@eslint/js";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 
-module.exports = [
+// Define your ESLint configuration using ES Modules syntax
+export default defineConfig([
   {
     extends: [
       eslint.configs.recommended,
@@ -10,14 +12,14 @@ module.exports = [
       tseslint.configs.stylistic,
       eslintConfigPrettier,
     ],
-    ignorePatterns: [".github/workflows", "node_modules", "dist"], // Ignore specific files/folders
+    ignorePatterns: [".github/workflows", "node_modules", "dist"],
   },
   {
-    // Configuration for specific files (e.g., customize rules for TypeScript files)
-    files: ["*.ts", "*.tsx"],
+    // Configuration for specific files (e.g., ignore specific folders)
+    files: ["tests/**/*.ts"],
     rules: {
-      "no-console": "off", // Example: Turn off specific rule for TypeScript files
-      "no-unused-vars": "off", // Example: Turn off another rule for TypeScript files
+      "no-console": "off",
+      "no-unused-vars": "off",
     },
   },
-];
+]);
