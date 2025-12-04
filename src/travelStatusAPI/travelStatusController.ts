@@ -41,7 +41,7 @@ export const getAllTravelStatuses = (req: Request, res: Response) => {
 
 export const getTravelStatusByCountry = async (req: Request, res: Response) => {
   const country = req.params.country.toLowerCase();
-  var status = null;
+  let status = null;
   if (mock) {
     status = mockTravelStatus.countries.find(
       (ts) => ts.country.toLowerCase() === country,

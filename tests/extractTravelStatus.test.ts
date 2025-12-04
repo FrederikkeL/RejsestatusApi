@@ -2,7 +2,7 @@ import { extractTravelStatus } from "../src/scraper/extractTravelStatus";
 import { fetchPage } from "../src/scraper/fetchPage";
 
 // Mock fetchPage
-jest.mock("../src/scraperAPI/fetchPage");
+jest.mock("../src/scraper/fetchPage");
 
 const mockedFetchPage = fetchPage as jest.MockedFunction<typeof fetchPage>;
 

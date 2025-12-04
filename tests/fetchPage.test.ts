@@ -1,4 +1,4 @@
-import { fetchPage } from "../src/scraperAPI/fetchPage";
+import { fetchPage } from "../src/scraper/fetchPage";
 //import axios from "axios";
 
 jest.mock("axios");
