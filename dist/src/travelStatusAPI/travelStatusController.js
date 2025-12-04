@@ -4,19 +4,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTravelStatusByCountry = exports.getAllTravelStatuses = void 0;
+const pathKeysHelpers_1 = require("../helpers/pathKeysHelpers");
 const mockTravelStatus_1 = __importDefault(require("../../mockData/mockTravelStatus"));
-const extractTravelStatus_1 = require("../scraper/extractTravelStatus");
+const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
+const dataPath = path_1.default.resolve(__dirname, "../caching/data.json");
 const mock = false;
 const getAllTravelStatuses = (req, res) => {
-    //missing logic for get all travel statuses
-    if (!mockTravelStatus_1.default) {
+    let countryListResponse;
+    if (mock) {
+        countryListResponse = mockTravelStatus_1.default;
+    }
+    else {
+        countryListResponse = JSON.parse(fs_1.default.readFileSync(dataPath, "utf-8"));
+    }
+    if (!countryListResponse) {
         res.status(404).json({
             message: "Travel statuses are not available.",
         });
     }
-    switch (mockTravelStatus_1.default.httpCode) {
+    switch (countryListResponse.httpCode) {
         case 200:
-            res.status(200).json(mockTravelStatus_1.default);
+            res.status(200).json(countryListResponse);
             break;
         case 500:
             res.status(500).json({
@@ -41,22 +50,25 @@ const getAllTravelStatuses = (req, res) => {
 };
 exports.getAllTravelStatuses = getAllTravelStatuses;
 const getTravelStatusByCountry = async (req, res) => {
-    const country = req.params.country.toLowerCase();
-    var status = null;
+    let countryResponse;
+    let country = "";
     if (mock) {
-        status = mockTravelStatus_1.default.countries.find((ts) => ts.country.toLowerCase() === country);
+        country = (0, pathKeysHelpers_1.findMockDanishNameByCode)(req.params.country);
+        countryResponse = mockTravelStatus_1.default.countries.find((ts) => ts.country?.toLowerCase() === country?.toLowerCase());
     }
     else {
-        status = await (0, extractTravelStatus_1.extractTravelStatus)(country, false);
+        country = (0, pathKeysHelpers_1.findDanishNameByCode)(req.params.country);
+        const countryListResponse = JSON.parse(fs_1.default.readFileSync(dataPath, "utf-8"));
+        countryResponse = countryListResponse.countries.find((ts) => ts.country?.toLowerCase() === country?.toLowerCase());
     }
-    if (!status) {
+    if (!countryResponse) {
         return res.status(404).json({
             message: `Travel status for ${req.params.country} is not available.`,
         });
     }
-    switch (status.httpCodeUM) {
+    switch (countryResponse.httpCodeUM) {
         case 200:
-            res.status(200).json(status);
+            res.status(200).json(countryResponse);
             break;
         case 500:
             res.status(500).json({
