@@ -15,7 +15,7 @@ export default defineConfig([
   },
   {
     // Configuration for specific files (e.g., ignore specific folders)
-    files: [".github/workflows", "node_modules", ".dist"],
+    files: [".github/workflows", "node_modules", "dist"],
     rules: {
       "no-console": "off",
       "no-unused-vars": "off",
