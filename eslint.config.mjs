@@ -12,7 +12,7 @@ export default defineConfig([
       tseslint.configs.stylistic,
       eslintConfigPrettier,
     ],
-    ignores: [".github/workflows", "node_modules", "dist"],
+    
   },
   {
     // Configuration for specific files (e.g., ignore specific folders)
