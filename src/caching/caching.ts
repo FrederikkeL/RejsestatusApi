@@ -1,8 +1,7 @@
-const fs = require("fs").promises;
 import type { CountryListResponse } from "../../types/travelStatusReponse";
-const path = require("path");
+import path from "path";
+import fs from "fs/promises";
 
-  
 async function cacheJSON(jsonCountryListResponse: CountryListResponse) {
   try {
     const filePath = path.join(__dirname, "data.json");

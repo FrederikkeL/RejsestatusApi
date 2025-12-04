@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 import { extractTravelStatus } from "../scraper/extractTravelStatus";
 import type { CountryListResponse } from "../../types/travelStatusReponse";
-import { cacheJSON } from "../scraper/caching";
+import { cacheJSON } from "../caching/caching";
 
 const jsonPath = path.resolve(
   __dirname,
