@@ -58,7 +58,7 @@ export const getAllTravelStatuses = (req: Request, res: Response) => {
 export const getTravelStatusByCountry = async (req: Request, res: Response) => {
   let countryResponse: CountryResponse;
 
-  let country: string = "";
+  let country = "";
 
   if (mock) {
     country = findMockDanishNameByCode(req.params.country);
