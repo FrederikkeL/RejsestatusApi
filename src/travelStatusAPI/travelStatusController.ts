@@ -3,6 +3,10 @@ import {
   findDanishNameByCode,
   findMockDanishNameByCode,
 } from "../helpers/pathKeysHelpers";
+import {
+  findDanishNameByCode,
+  findMockDanishNameByCode,
+} from "../helpers/pathKeysHelpers";
 import mockTravelStatus from "../../mockData/mockTravelStatus";
 import path from "path";
 import fs from "fs";
@@ -17,6 +21,12 @@ const mock = process.env.NODE_ENV === "test";
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   let countryListResponse: CountryListResponse;
 
+  if (mock) {
+    countryListResponse = mockTravelStatus;
+  } else {
+    countryListResponse = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+  }
+  if (!countryListResponse) {
   if (mock) {
     countryListResponse = mockTravelStatus;
   } else {
