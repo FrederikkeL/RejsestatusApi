@@ -23,14 +23,12 @@ export const getAllTravelStatuses = (req: Request, res: Response) => {
     countryListResponse = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
   }
 
-  // If still no response → error
   if (!countryListResponse) {
     return res.status(404).json({
       message: "Travel statuses are not available.",
     });
   }
 
-  // Handle httpCode
   switch (countryListResponse.httpCode) {
     case 200:
       return res.status(200).json(countryListResponse);
