@@ -12,53 +12,48 @@ import {
 } from "../../types/travelStatusReponse";
 
 const dataPath = path.resolve(__dirname, "../caching/data.json");
-const mock = process.env.NODE_ENV === "test";
 
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   let countryListResponse: CountryListResponse;
 
-  if (mock) {
+  // Load mock or file
+  if (process.env.JEST_WORKER_ID !== undefined) {
     countryListResponse = mockTravelStatus;
   } else {
     countryListResponse = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
   }
+
   if (!countryListResponse) {
-    if (mock) {
-      countryListResponse = mockTravelStatus;
-    } else {
-      countryListResponse = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
-    }
-    if (!countryListResponse) {
-      res.status(404).json({
+    return res.status(404).json({
+      message: "Travel statuses are not available.",
+    });
+  }
+
+  switch (countryListResponse.httpCode) {
+    case 200:
+      return res.status(200).json(countryListResponse);
+
+    case 500:
+      return res.status(500).json({
+        message:
+          "Udenrigsministeriet's website is down, can't show travel statuses currently.",
+      });
+
+    case 503:
+      return res.status(503).json({
+        message:
+          "Travel status service is down, can't show travel statuses currently.",
+      });
+
+    case 404:
+      return res.status(404).json({
         message: "Travel statuses are not available.",
       });
-    }
-    switch (countryListResponse.httpCode) {
-      case 200:
-        res.status(200).json(countryListResponse);
-        break;
-      case 500:
-        res.status(500).json({
-          message:
-            "Udenrigsministeriet's website is down, can't show travel statuses currently.",
-        });
-        break;
-      case 503:
-        res.status(503).json({
-          message:
-            "Travel status service is down, can't show travel statuses currently.",
-        });
-        break;
-      case 404:
-        res.status(404).json({
-          message: "Travel statuses are not available.",
-        });
-        break;
-      default:
-        res.status(500).json({
-          message: "An unexpected error occurred.",
-        });
-    }
+
+    default:
+      return res.status(500).json({
+        message: "An unexpected error occurred.",
+      });
   }
 };
 
@@ -67,7 +62,7 @@ export const getTravelStatusByCountry = async (req: Request, res: Response) => {
 
   let country = "";
 
-  if (mock) {
+  if (process.env.JEST_WORKER_ID !== undefined) {
     country = findMockDanishNameByCode(req.params.country);
     countryResponse = mockTravelStatus.countries.find(
       (ts) => ts.country?.toLowerCase() === country?.toLowerCase(),
