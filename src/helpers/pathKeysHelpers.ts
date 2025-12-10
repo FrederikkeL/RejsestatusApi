@@ -17,6 +17,19 @@ export function findDanishNameByCode(countryCode: string) {
   )?.danish;
 }
 
+export function findEnglishNameByCode(countryCode: string) {
+  const jsonPath = path.resolve(__dirname, "../scraper/countryPathKeys.json");
+  const countries = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
+  const englishName = countries.find(
+    (key) => key.code.toLowerCase() === countryCode.toLowerCase(),
+  )?.english;
+
+  if (!englishName) {
+    return countryCode;
+  }
+  return englishName;
+}
+
 export function findMockDanishNameByCode(countryCode: string) {
   const jsonPath = path.resolve(
     __dirname,

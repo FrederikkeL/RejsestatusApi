@@ -4,6 +4,7 @@ import type {
   CountryResponse,
   TravelStatus,
 } from "../../types/travelStatusReponse";
+import { findEnglishNameByCode } from "../helpers/pathKeysHelpers";
 
 export async function extractTravelStatus(
   countryCode: string,
@@ -19,7 +20,7 @@ export async function extractTravelStatus(
 
   if (html === "notfound") {
     httpCodeUM = 404;
-    errorMessage = `Travel advice for ${countryCode} not found (404).`;
+    errorMessage = `Travel advice for ${findEnglishNameByCode(countryCode)} not found (404).`;
     return {
       httpCodeUM,
       errorMessage,
@@ -28,7 +29,7 @@ export async function extractTravelStatus(
 
   if (html === "servererror") {
     httpCodeUM = 500;
-    errorMessage = `Server error when fetching travel advice for ${countryCode} (500).`;
+    errorMessage = `Server error when fetching travel advice for ${findEnglishNameByCode(countryCode)} (500).`;
     return {
       httpCodeUM,
       errorMessage,
@@ -37,7 +38,7 @@ export async function extractTravelStatus(
 
   if (html === "emptykey") {
     httpCodeUM = 400;
-    errorMessage = `Country code ${countryCode} doesn't have a path key defined (400).`;
+    errorMessage = `Country code ${findEnglishNameByCode(countryCode)} doesn't have a path key defined (400).`;
     return {
       httpCodeUM,
       errorMessage,
@@ -52,11 +53,11 @@ export async function extractTravelStatus(
   updatedDateUM = extractDate($(".col-8").text().trim());
 
   if (
-    pageTitle.toLowerCase().includes("vi har ingen rejsevejledning for") ||
+    pageTitle.toLowerCase().includes("vi har ingen rejsevejledning") ||
     !pageTitle
   ) {
     httpCodeUM = 204;
-    errorMessage = `No travel advice available for ${countryCode}.`;
+    errorMessage = `No travel advice available for ${findEnglishNameByCode(countryCode)}.`;
     return {
       httpCodeUM,
       errorMessage,
@@ -91,7 +92,8 @@ function extractStatuses($: CheerioAPI): TravelStatus[] {
       const travelStatus = cleanString(
         heading
           .attr("class")
-          ?.match(/module-travel-advice-(minimal|low|high)/)?.[1] ?? null,
+          ?.match(/module-travel-advice-(minimal|low|high|medium)/)?.[1] ??
+          null,
       );
 
       const sibling = heading
