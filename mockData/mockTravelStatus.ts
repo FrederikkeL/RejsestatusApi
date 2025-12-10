@@ -16,7 +16,8 @@ const mockTravelStatus: CountryListResponse = {
         },
       ],
       httpCodeUM: 200,
-      updatedTimeUM: "2023-10-01T12:00:00Z",
+      updatedTimeUM: "12:00:00",
+      updatedDateUM: "01-10-2023",
     },
     {
       country: "Sverige",
@@ -29,7 +30,8 @@ const mockTravelStatus: CountryListResponse = {
         },
       ],
       httpCodeUM: 200,
-      updatedTimeUM: "2023-10-01T12:05:00Z",
+      updatedTimeUM: "12:05:00",
+      updatedDateUM: "01-10-2023",
     },
     {
       country: "Ukraine",
@@ -42,7 +44,8 @@ const mockTravelStatus: CountryListResponse = {
         },
       ],
       httpCodeUM: 200,
-      updatedTimeUM: "2023-10-01T12:10:00Z",
+      updatedTimeUM: "12:10:00",
+      updatedDateUM: "01-10-2023",
     },
     {
       country: "Cambodja",
@@ -50,21 +53,21 @@ const mockTravelStatus: CountryListResponse = {
         {
           travelStatus: "low",
           headingText:
-            "Vær ekstra forsigtig:\n                      Hele landet undtagen området i den røde\n                        bjælke.",
+            "Vær ekstra forsigtig: Hele landet undtagen området i den røde bjælke.",
           contentText:
-            "Vær til enhver tid opmærksom på din\n                      personlige sikkerhed og hold dig opdateret om udviklingen\n                      via de lokale myndigheder, nyhedsmedierne og dit\n                      rejsebureau.",
+            "Vær til enhver tid opmærksom på din personlige sikkerhed og hold dig opdateret om udviklingen via de lokale myndigheder, nyhedsmedierne og dit rejsebureau.",
         },
         {
           travelStatus: "high",
           headingText:
-            "Vi fraråder alle rejser til:\n                      Grænseområdet til Thailand i en zone\n                        på 20 km fra grænsen.",
+            "Vi fraråder alle rejser til: Grænseområdet til Thailand i en zone på 20 km fra grænsen.",
           contentText:
-            "Meget høj sikkerhedsrisiko. Hvis du vælger at\n                      rejse, bør du søge professionel\n                      rådgivning.",
+            "Meget høj sikkerhedsrisiko. Hvis du vælger at rejse, bør du søge professionel rådgivning.",
         },
       ],
       httpCodeUM: 200,
-      updatedTimeUM:
-        "\n                      Rejsevejledning opdateret: 10.11.2025 Kl. 12:38\n                    ",
+      updatedTimeUM: "12:38",
+      updatedDateUM: "10-11-2025",
     },
   ],
 };

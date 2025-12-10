@@ -11,7 +11,14 @@ const caching_1 = require("../caching/caching");
 const jsonPath = path_1.default.resolve(__dirname, "../scraper/countryPathKeys.json");
 // load mock path keys "../../../mockData/mockCountryPathKeys.json"
 const pathKeys = JSON.parse(fs_1.default.readFileSync(jsonPath, "utf-8"));
-const countryListResponse = {};
+const countryListResponse = {
+    httpCode: 200,
+    retrievedTime: new Date().toLocaleString("da-DK", {
+        timeZone: "Europe/Copenhagen",
+    }),
+    version: "1.0.0",
+    countries: [],
+};
 node_cron_1.default.schedule("*/30 * * * * *", async () => {
     //"*/30 * * * * *" for every 30 seconds
     countryListResponse.countries = [];
@@ -19,9 +26,6 @@ node_cron_1.default.schedule("*/30 * * * * *", async () => {
         const country = await runScraperHourly(pathKey.code);
         countryListResponse.countries.push(country);
     }
-    countryListResponse.httpCode = 200;
-    countryListResponse.retrievedTime = new Date().toISOString();
-    countryListResponse.version = "1.0.0";
     (0, caching_1.cacheJSON)(countryListResponse);
 });
 function runScraperHourly(countryCode) {

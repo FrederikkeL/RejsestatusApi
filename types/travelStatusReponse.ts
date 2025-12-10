@@ -6,11 +6,12 @@ export interface CountryListResponse {
 }
 
 export interface CountryResponse {
-  country: string;
+  country?: string;
   httpCodeUM: number;
   errorMessage?: string;
-  updatedTimeUM: string;
-  travelStatuses: TravelStatus[];
+  updatedTimeUM?: string;
+  updatedDateUM?: string;
+  travelStatuses?: TravelStatus[];
 }
 
 export interface TravelStatus {

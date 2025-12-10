@@ -11,7 +11,6 @@ const fs_1 = __importDefault(require("fs"));
 const dataPath = path_1.default.resolve(__dirname, "../caching/data.json");
 const getAllTravelStatuses = (req, res) => {
     let countryListResponse;
-    // Load mock or file
     if (process.env.JEST_WORKER_ID !== undefined) {
         countryListResponse = mockTravelStatus_1.default;
     }
