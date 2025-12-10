@@ -1,0 +1,323 @@
+[
+  {
+    "code": "AL",
+    "english": "Albania",
+    "danish": "Albanien",
+    "pathKey": "albanien"
+  },
+  {
+    "code": "AD",
+    "english": "Andorra",
+    "danish": "Andorra",
+    "pathKey": "andorra"
+  },
+  {
+    "code": "PTA",
+    "english": "Azores",
+    "danish": "Azorerne",
+    "pathKey": "azores"
+  },
+  {
+    "code": "BE",
+    "english": "Belgium",
+    "danish": "Belgien",
+    "pathKey": "belgien"
+  },
+  {
+    "code": "BA",
+    "english": "Bosnia and Herzegovina",
+    "danish": "Bosnien-Hercegovina",
+    "pathKey": "bosnien-hercegovina"
+  },
+  {
+    "code": "BG",
+    "english": "Bulgaria",
+    "danish": "Bulgarien",
+    "pathKey": "bulgarien"
+  },
+  {
+    "code": "CY",
+    "english": "Cyprus",
+    "danish": "Cypern",
+    "pathKey": "cypern"
+  },
+  {
+    "code": "DK",
+    "english": "Denmark",
+    "danish": "Danmark",
+    "pathKey": "danmark"
+  },
+  {
+    "code": "ESC",
+    "english": "Canary Islands",
+    "danish": "De Kanariske Øer",
+    "pathKey": "de-kanariske-øer"
+  },
+  {
+    "code": "EE",
+    "english": "Estonia",
+    "danish": "Estland",
+    "pathKey": "estland"
+  },
+  {
+    "code": "FI",
+    "english": "Finland",
+    "danish": "Finland",
+    "pathKey": "finland"
+  },
+  {
+    "code": "FR",
+    "english": "France",
+    "danish": "Frankrig",
+    "pathKey": "frankrig"
+  },
+  {
+    "code": "FO",
+    "english": "Faroe Islands",
+    "danish": "Færøerne",
+    "pathKey": "færøerne"
+  },
+  {
+    "code": "GI",
+    "english": "Gibraltar",
+    "danish": "Gibraltar",
+    "pathKey": "gibraltar"
+  },
+  {
+    "code": "GR",
+    "english": "Greece",
+    "danish": "Grækenland",
+    "pathKey": "graekenland"
+  },
+  {
+    "code": "GL",
+    "english": "Greenland",
+    "danish": "Grønland",
+    "pathKey": "grønland"
+  },
+  {
+    "code": "NL",
+    "english": "Netherlands",
+    "danish": "Holland",
+    "pathKey": "nederlandene"
+  },
+  {
+    "code": "BY",
+    "english": "Belarus",
+    "danish": "Hviderusland",
+    "pathKey": "belarus"
+  },
+  {
+    "code": "IE",
+    "english": "Ireland",
+    "danish": "Irland",
+    "pathKey": "irland"
+  },
+  {
+    "code": "IS",
+    "english": "Iceland",
+    "danish": "Island",
+    "pathKey": "island"
+  },
+  {
+    "code": "IM",
+    "english": "Isle of Man",
+    "danish": "Isle of Man",
+    "pathKey": "isle-of-man"
+  },
+  {
+    "code": "IT",
+    "english": "Italy",
+    "danish": "Italien",
+    "pathKey": "italien"
+  },
+  {
+    "code": "JE",
+    "english": "Jersey",
+    "danish": "Kanaløerne",
+    "pathKey": "kanaløerne"
+  },
+  {
+    "code": "KZ",
+    "english": "Kazakhstan",
+    "danish": "Kasakhstan",
+    "pathKey": "kasakhstan"
+  },
+  {
+    "code": "XK",
+    "english": "Kosovo",
+    "danish": "Kosovo",
+    "pathKey": "kosovo"
+  },
+  {
+    "code": "HR",
+    "english": "Croatia",
+    "danish": "Kroatien",
+    "pathKey": "kroatien"
+  },
+  {
+    "code": "LV",
+    "english": "Latvia",
+    "danish": "Letland",
+    "pathKey": "letland"
+  },
+  {
+    "code": "LI",
+    "english": "Liechtenstein",
+    "danish": "Liechtenstein",
+    "pathKey": "liechtenstein"
+  },
+  {
+    "code": "LT",
+    "english": "Lithuania",
+    "danish": "Litauen",
+    "pathKey": "litauen"
+  },
+  {
+    "code": "LU",
+    "english": "Luxembourg",
+    "danish": "Luxembourg",
+    "pathKey": "luxembourg"
+  },
+  {
+    "code": "PTM",
+    "english": "Madeira",
+    "danish": "Madeira",
+    "pathKey": "madeira"
+  },
+  {
+    "code": "MK",
+    "english": "North Macedonia",
+    "danish": "Makedonien",
+    "pathKey": "nordmakedonien"
+  },
+  { "code": "MT", "english": "Malta", "danish": "Malta", "pathKey": "malta" },
+  {
+    "code": "MD",
+    "english": "Moldova",
+    "danish": "Moldova",
+    "pathKey": "moldova"
+  },
+  {
+    "code": "MC",
+    "english": "Monaco",
+    "danish": "Monaco",
+    "pathKey": "monaco"
+  },
+  {
+    "code": "ME",
+    "english": "Montenegro",
+    "danish": "Montenegro",
+    "pathKey": "montenegro"
+  },
+  { "code": "NO", "english": "Norway", "danish": "Norge", "pathKey": "norge" },
+  { "code": "PL", "english": "Poland", "danish": "Polen", "pathKey": "polen" },
+  {
+    "code": "PT",
+    "english": "Portugal",
+    "danish": "Portugal",
+    "pathKey": "portugal"
+  },
+  {
+    "code": "RO",
+    "english": "Romania",
+    "danish": "Rumænien",
+    "pathKey": "rumaenien"
+  },
+  {
+    "code": "RU",
+    "english": "Russia",
+    "danish": "Rusland indtil Ural",
+    "pathKey": "rusland"
+  },
+  {
+    "code": "SM",
+    "english": "San Marino",
+    "danish": "San Marino",
+    "pathKey": "san-marino"
+  },
+  {
+    "code": "CH",
+    "english": "Switzerland",
+    "danish": "Schweiz",
+    "pathKey": "schweiz"
+  },
+  {
+    "code": "RS",
+    "english": "Serbia",
+    "danish": "Serbien",
+    "pathKey": "serbien"
+  },
+  {
+    "code": "SK",
+    "english": "Slovakia",
+    "danish": "Slovakiet",
+    "pathKey": "slovakiet"
+  },
+  {
+    "code": "SI",
+    "english": "Slovenia",
+    "danish": "Slovenien",
+    "pathKey": "slovenien"
+  },
+  {
+    "code": "ES",
+    "english": "Spain",
+    "danish": "Spanien",
+    "pathKey": "spanien"
+  },
+  {
+    "code": "GB",
+    "english": "United Kingdom",
+    "danish": "Storbritannien",
+    "pathKey": "storbritannien"
+  },
+  {
+    "code": "SE",
+    "english": "Sweden",
+    "danish": "Sverige",
+    "pathKey": "sverige"
+  },
+  {
+    "code": "CZ",
+    "english": "Czech Republic",
+    "danish": "Tjekkiet",
+    "pathKey": "tjekkiet"
+  },
+  {
+    "code": "TR",
+    "english": "Turkey",
+    "danish": "hele Tyrkiet",
+    "pathKey": "tyrkiet"
+  },
+  {
+    "code": "DE",
+    "english": "Germany",
+    "danish": "Tyskland",
+    "pathKey": "tyskland"
+  },
+  {
+    "code": "UA",
+    "english": "Ukraine",
+    "danish": "Ukraine",
+    "pathKey": "ukraine"
+  },
+  {
+    "code": "HU",
+    "english": "Hungary",
+    "danish": "Ungarn",
+    "pathKey": "ungarn"
+  },
+  {
+    "code": "VA",
+    "english": "Vatican City",
+    "danish": "Vatikanstaten",
+    "pathKey": "vatikanstaten"
+  },
+  {
+    "code": "AT",
+    "english": "Austria",
+    "danish": "Østrig",
+    "pathKey": "oestrig"
+  }
+]
