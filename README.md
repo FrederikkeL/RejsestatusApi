@@ -5,45 +5,55 @@ The response is formatted as metadata and a list of countries:
 
 ```
 {
+  "httpCode": 200,
+  "retrievedTime": "10.12.2025, 13.12.38",
+  "version": "1.0.0",
   "countries": [
     {
-      "country": "Finland",
-      "travelStatuses": [
-        {
-          "travelStatus": "low",
-          "headingText": "Vær ekstra forsigtig: Hele landet undtagen området i den røde bjælke.",
-          "contentText": "Vær til enhver tid opmærksom på din personlige sikkerhed og hold dig opdateret om udviklingen via de lokale myndigheder, nyhedsmedierne og dit rejsebureau."
-        },
-        {
-          "travelStatus": "high",
-          "headingText": "Vi fraråder alle rejser til: Grænseområdet til Thailand i en zone på 20 km fra grænsen.",
-          "contentText": "Meget høj sikkerhedsrisiko. Hvis du vælger at rejse, bør du søge professionel rådgivning."
-        }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret: 10.11.2025 Kl. 12:38"
+      "httpCodeUM": 204,
+      "errorMessage": "No travel advice available for Albania."
     },
     {
-      "country": "Cambodja",
+      "httpCodeUM": 404,
+      "errorMessage": "Travel advice for Azores not found (404)."
+    },
+    {
+      "httpCodeUM": 200,
+      "country": "Belgien",
+      "updatedDateUM": "11.11.2025",
+      "updatedTimeUM": "15.51",
+      "travelStatuses": [
+        {
+          "travelStatus": "minimal",
+          "headingText": "Vær opmærksom: Hele landet.",
+          "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
+        }
+      ]
+    },
+{
+      "httpCodeUM": 200,
+      "country": "Tyrkiet",
+      "updatedDateUM": "08.12.2025",
+      "updatedTimeUM": "14.08",
       "travelStatuses": [
         {
           "travelStatus": "low",
-          "headingText": "Vær ekstra forsigtig: Hele landet undtagen området i den røde bjælke.",
+          "headingText": "Vær ekstra forsigtig: Hele landet, undtagen områderne i den orange bjælke og den røde bjælke nedenfor.",
           "contentText": "Vær til enhver tid opmærksom på din personlige sikkerhed og hold dig opdateret om udviklingen via de lokale myndigheder, nyhedsmedierne og dit rejsebureau."
         },
         {
+          "travelStatus": "medium",
+          "headingText": "Vi fraråder alle ikke-nødvendige rejser til: De sydøstlige provinser Hatay, Kilis, Sirnak og Hakkari.",
+          "contentText": "Risiciene er så alvorlige, at du bør have særlige grunde til at besøge området/landet. Vigtige forretningsrejser og presserende familiebegivenheder kan få rejsende til at vurdere, at et besøg er nødvendigt."
+        },
+        {
           "travelStatus": "high",
-          "headingText": "Vi fraråder alle rejser til: Grænseområdet til Thailand i en zone på 20 km fra grænsen.",
+          "headingText": "Vi fraråder alle rejser til: Områder inden for 10 km fra grænsen til Syrien og Irak.",
           "contentText": "Meget høj sikkerhedsrisiko. Hvis du vælger at rejse, bør du søge professionel rådgivning."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret: 10.11.2025 Kl. 12:38"
+      ]
     }
-  ],
-  "httpCode": 200,
-  "retrievedTime": "2025-12-03T08:56:30.084Z",
-  "version": "1.0.0"
+]
 }
 
 ```
