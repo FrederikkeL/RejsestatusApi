@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.extractTravelStatus = extractTravelStatus;
 const cheerio_1 = require("cheerio");
 const fetchPage_1 = require("./fetchPage");
+const pathKeysHelpers_1 = require("../helpers/pathKeysHelpers");
 async function extractTravelStatus(countryCode, useMock) {
     let errorMessage = "";
     let httpCodeUM = 0;
@@ -12,7 +13,7 @@ async function extractTravelStatus(countryCode, useMock) {
     const html = await (0, fetchPage_1.fetchPage)(countryCode, useMock);
     if (html === "notfound") {
         httpCodeUM = 404;
-        errorMessage = `Travel advice for ${countryCode} not found (404).`;
+        errorMessage = `Travel advice for ${(0, pathKeysHelpers_1.findEnglishNameByCode)(countryCode)} not found (404).`;
         return {
             httpCodeUM,
             errorMessage,
@@ -20,7 +21,7 @@ async function extractTravelStatus(countryCode, useMock) {
     }
     if (html === "servererror") {
         httpCodeUM = 500;
-        errorMessage = `Server error when fetching travel advice for ${countryCode} (500).`;
+        errorMessage = `Server error when fetching travel advice for ${(0, pathKeysHelpers_1.findEnglishNameByCode)(countryCode)} (500).`;
         return {
             httpCodeUM,
             errorMessage,
@@ -28,7 +29,7 @@ async function extractTravelStatus(countryCode, useMock) {
     }
     if (html === "emptykey") {
         httpCodeUM = 400;
-        errorMessage = `Country code ${countryCode} doesn't have a path key defined (400).`;
+        errorMessage = `Country code ${(0, pathKeysHelpers_1.findEnglishNameByCode)(countryCode)} doesn't have a path key defined (400).`;
         return {
             httpCodeUM,
             errorMessage,
@@ -39,10 +40,10 @@ async function extractTravelStatus(countryCode, useMock) {
     travelStatuses = extractStatuses($);
     updatedTimeUM = extractTime($(".col-8").text().trim());
     updatedDateUM = extractDate($(".col-8").text().trim());
-    if (pageTitle.toLowerCase().includes("vi har ingen rejsevejledning for") ||
+    if (pageTitle.toLowerCase().includes("vi har ingen rejsevejledning") ||
         !pageTitle) {
         httpCodeUM = 204;
-        errorMessage = `No travel advice available for ${countryCode}.`;
+        errorMessage = `No travel advice available for ${(0, pathKeysHelpers_1.findEnglishNameByCode)(countryCode)}.`;
         return {
             httpCodeUM,
             errorMessage,
@@ -69,7 +70,8 @@ function extractStatuses($) {
         const heading = $(h2);
         const travelStatus = cleanString(heading
             .attr("class")
-            ?.match(/module-travel-advice-(minimal|low|high)/)?.[1] ?? null);
+            ?.match(/module-travel-advice-(minimal|low|high|medium)/)?.[1] ??
+            null);
         const sibling = heading
             .nextAll()
             .filter((_, el) => el.type === "tag")

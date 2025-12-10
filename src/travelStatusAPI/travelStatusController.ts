@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import {
   findDanishNameByCode,
   findMockDanishNameByCode,
+  findEnglishNameByCode,
 } from "../helpers/pathKeysHelpers";
 import mockTravelStatus from "../../mockData/mockTravelStatus";
 import path from "path";
@@ -77,31 +78,36 @@ export const getTravelStatusByCountry = async (req: Request, res: Response) => {
   }
   if (!countryResponse) {
     return res.status(404).json({
-      message: `Travel status for ${req.params.country} is not available.`,
+      message: `Travel status for ${findEnglishNameByCode(req.params.country)} is not available.`,
     });
   }
   switch (countryResponse.httpCodeUM) {
     case 200:
       res.status(200).json(countryResponse);
       break;
+    case 204:
+      res.status(204).json({
+        message: `No travel advice available for ${findEnglishNameByCode(req.params.country)}.`,
+      });
+      break;
     case 500:
       res.status(500).json({
-        message: `Udenrigsministeriet's website is down, can't show travel status for ${req.params.country} currently.`,
+        message: `Udenrigsministeriet's website is down, can't show travel status for ${findEnglishNameByCode(req.params.country)} currently.`,
       });
       break;
     case 503:
       res.status(503).json({
-        message: `Travel status service is down, can't show travel status for ${req.params.country} currently.`,
+        message: `Travel status service is down, can't show travel status for ${findEnglishNameByCode(req.params.country)} currently.`,
       });
       break;
     case 404:
       res.status(404).json({
-        message: `Travel status for ${req.params.country} is not available.`,
+        message: `Travel status for ${findEnglishNameByCode(req.params.country)} is not available.`,
       });
       break;
     default:
       res.status(500).json({
-        message: `Unexpected error occurred for ${req.params.country}.`,
+        message: `Unexpected error occurred for ${findEnglishNameByCode(req.params.country)}.`,
       });
   }
 };
