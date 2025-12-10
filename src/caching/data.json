@@ -1,563 +1,519 @@
 {
+  "httpCode": 200,
+  "retrievedTime": "10.12.2025, 12.45.37",
+  "version": "1.0.0",
   "countries": [
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for AL."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for AD."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [PTA] not found (404)."
+      "errorMessage": "Travel advice for PTA not found (404)."
     },
     {
+      "httpCodeUM": 200,
       "country": "Belgien",
+      "updatedDateUM": "11.11.2025",
+      "updatedTimeUM": "15:51",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  11.11.2025 Kl. 15:51"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Bosnien-Hercegovina",
+      "updatedDateUM": "24.10.2025",
+      "updatedTimeUM": "15:42",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  24.10.2025 Kl. 15:42"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Bulgarien",
+      "updatedDateUM": "11.11.2025",
+      "updatedTimeUM": "16:08",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  11.11.2025 Kl. 16:08"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for CY."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [DK] not found (404)."
+      "errorMessage": "Travel advice for DK not found (404)."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [ESC] not found (404)."
+      "errorMessage": "Travel advice for ESC not found (404)."
     },
     {
+      "httpCodeUM": 200,
       "country": "Estland",
+      "updatedDateUM": "04.11.2025",
+      "updatedTimeUM": "12:11",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  04.11.2025 Kl. 12:11"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Finland",
+      "updatedDateUM": "07.11.2025",
+      "updatedTimeUM": "13:44",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  07.11.2025 Kl. 13:44"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Frankrig",
+      "updatedDateUM": "29.10.2025",
+      "updatedTimeUM": "16:48",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
+      ]
+    },
+    {
+      "httpCodeUM": 404,
+      "errorMessage": "Travel advice for FO not found (404)."
+    },
+    {
+      "httpCodeUM": 404,
+      "errorMessage": "Travel advice for GI not found (404)."
+    },
+    {
       "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  29.10.2025 Kl. 16:48"
-    },
-    {
-      "country": "",
-      "travelStatuses": [],
-      "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [FO] not found (404)."
-    },
-    {
-      "country": "",
-      "travelStatuses": [],
-      "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [GI] not found (404)."
-    },
-    {
       "country": "Grækenland",
+      "updatedDateUM": "17.11.2025",
+      "updatedTimeUM": "16:03",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  17.11.2025 Kl. 16:03"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [GL] not found (404)."
+      "errorMessage": "Travel advice for GL not found (404)."
     },
     {
+      "httpCodeUM": 200,
       "country": "Nederlandene",
+      "updatedDateUM": "14.11.2025",
+      "updatedTimeUM": "13:12",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  14.11.2025 Kl. 13:12"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for BY."
     },
     {
+      "httpCodeUM": 200,
       "country": "Irland",
+      "updatedDateUM": "12.11.2025",
+      "updatedTimeUM": "14:03",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  12.11.2025 Kl. 14:03"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Island",
+      "updatedDateUM": "07.11.2025",
+      "updatedTimeUM": "13:39",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  07.11.2025 Kl. 13:39"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [IM] not found (404)."
+      "errorMessage": "Travel advice for IM not found (404)."
     },
     {
+      "httpCodeUM": 200,
       "country": "Italien",
+      "updatedDateUM": "29.10.2025",
+      "updatedTimeUM": "14:01",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  29.10.2025 Kl. 14:01"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [JE] not found (404)."
+      "errorMessage": "Travel advice for JE not found (404)."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for KZ."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for XK."
     },
     {
+      "httpCodeUM": 200,
       "country": "Kroatien",
+      "updatedDateUM": "07.11.2025",
+      "updatedTimeUM": "15:48",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  07.11.2025 Kl. 15:48"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Letland",
+      "updatedDateUM": "17.11.2025",
+      "updatedTimeUM": "10:14",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  17.11.2025 Kl. 10:14"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for LI."
     },
     {
+      "httpCodeUM": 200,
       "country": "Litauen",
+      "updatedDateUM": "04.11.2025",
+      "updatedTimeUM": "10:57",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  04.11.2025 Kl. 10:57"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for LU."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 404,
-      "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [PTM] not found (404)."
+      "errorMessage": "Travel advice for PTM not found (404)."
     },
     {
-      "country": "Vi har ingen rejsevejledninger for Nordmakedonien",
-      "travelStatuses": [],
       "httpCodeUM": 200,
-      "updatedTimeUM": ""
-    },
-    {
-      "country": "",
-      "travelStatuses": [],
-      "httpCodeUM": 404,
+      "country": "Vi har ingen rejsevejledninger for Nordmakedonien",
+      "updatedDateUM": "",
       "updatedTimeUM": "",
-      "errorMessage": "Travel advice for [MT] not found (404)."
+      "travelStatuses": []
     },
     {
+      "httpCodeUM": 404,
+      "errorMessage": "Travel advice for MT not found (404)."
+    },
+    {
+      "httpCodeUM": 200,
       "country": "Moldova",
+      "updatedDateUM": "29.10.2025",
+      "updatedTimeUM": "14:21",
       "travelStatuses": [
         {
           "travelStatus": "low",
-          "headingText": "Vær ekstra forsigtig:\n                                    Hele landet undtagen området i den orange bjælke nedenfor.",
+          "headingText": "Vær ekstra forsigtig: Hele landet undtagen området i den orange bjælke nedenfor.",
           "contentText": "Vær til enhver tid opmærksom på din personlige sikkerhed og hold dig opdateret om udviklingen via de lokale myndigheder, nyhedsmedierne og dit rejsebureau."
         },
         {
-          "travelStatus": null,
-          "headingText": "Vi fraråder alle ikke-nødvendige rejser til:\n                                    Transnistrien.",
+          "travelStatus": "",
+          "headingText": "Vi fraråder alle ikke-nødvendige rejser til: Transnistrien.",
           "contentText": "Risiciene er så alvorlige, at du bør have særlige grunde til at besøge området/landet. Vigtige forretningsrejser og presserende familiebegivenheder kan få rejsende til at vurdere, at et besøg er nødvendigt."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  29.10.2025 Kl. 14:21"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for MC."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for ME."
     },
     {
+      "httpCodeUM": 200,
       "country": "Norge",
+      "updatedDateUM": "24.10.2025",
+      "updatedTimeUM": "16:30",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  24.10.2025 Kl. 16:30"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Polen",
+      "updatedDateUM": "04.12.2025",
+      "updatedTimeUM": "12:17",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  04.12.2025 Kl. 12:17"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Portugal",
+      "updatedDateUM": "29.10.2025",
+      "updatedTimeUM": "10:29",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  29.10.2025 Kl. 10:29"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Rumænien",
+      "updatedDateUM": "03.11.2025",
+      "updatedTimeUM": "14:15",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  03.11.2025 Kl. 14:15"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Rusland",
+      "updatedDateUM": "01.12.2025",
+      "updatedTimeUM": "15:04",
       "travelStatuses": [
         {
           "travelStatus": "high",
-          "headingText": "Vi fraråder alle rejser til:\n                                    Hele landet.",
+          "headingText": "Vi fraråder alle rejser til: Hele landet.",
           "contentText": "Meget høj sikkerhedsrisiko. Hvis du vælger at rejse, bør du søge professionel rådgivning."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  01.12.2025 Kl. 15:04"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for SM."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for CH."
     },
     {
+      "httpCodeUM": 200,
       "country": "Serbien",
+      "updatedDateUM": "30.10.2025",
+      "updatedTimeUM": "11:16",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  30.10.2025 Kl. 11:16"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for SK."
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for SI."
     },
     {
+      "httpCodeUM": 200,
       "country": "Spanien",
+      "updatedDateUM": "03.11.2025",
+      "updatedTimeUM": "14:32",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  03.11.2025 Kl. 14:32"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Storbritannien og Nordirland",
+      "updatedDateUM": "03.11.2025",
+      "updatedTimeUM": "10:21",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  03.11.2025 Kl. 10:21"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Sverige",
+      "updatedDateUM": "11.11.2025",
+      "updatedTimeUM": "11:39",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  11.11.2025 Kl. 11:39"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Tjekkiet",
+      "updatedDateUM": "24.10.2025",
+      "updatedTimeUM": "17:10",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  24.10.2025 Kl. 17:10"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Tyrkiet",
+      "updatedDateUM": "08.12.2025",
+      "updatedTimeUM": "14:08",
       "travelStatuses": [
         {
           "travelStatus": "low",
-          "headingText": "Vær ekstra forsigtig:\n                                    Hele landet, undtagen områderne i den orange bjælke og den røde bjælke nedenfor.",
+          "headingText": "Vær ekstra forsigtig: Hele landet, undtagen områderne i den orange bjælke og den røde bjælke nedenfor.",
           "contentText": "Vær til enhver tid opmærksom på din personlige sikkerhed og hold dig opdateret om udviklingen via de lokale myndigheder, nyhedsmedierne og dit rejsebureau."
         },
         {
-          "travelStatus": null,
-          "headingText": "Vi fraråder alle ikke-nødvendige rejser til:\n                                    De sydøstlige provinser Hatay, Kilis, Sirnak og Hakkari.",
+          "travelStatus": "",
+          "headingText": "Vi fraråder alle ikke-nødvendige rejser til: De sydøstlige provinser Hatay, Kilis, Sirnak og Hakkari.",
           "contentText": "Risiciene er så alvorlige, at du bør have særlige grunde til at besøge området/landet. Vigtige forretningsrejser og presserende familiebegivenheder kan få rejsende til at vurdere, at et besøg er nødvendigt."
         },
         {
           "travelStatus": "high",
-          "headingText": "Vi fraråder alle rejser til:\n                                    Områder inden for 10 km fra grænsen til Syrien og Irak.",
+          "headingText": "Vi fraråder alle rejser til: Områder inden for 10 km fra grænsen til Syrien og Irak.",
           "contentText": "Meget høj sikkerhedsrisiko. Hvis du vælger at rejse, bør du søge professionel rådgivning."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  08.12.2025 Kl. 14:08"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Tyskland",
+      "updatedDateUM": "31.10.2025",
+      "updatedTimeUM": "15:49",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  31.10.2025 Kl. 15:49"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Ukraine",
+      "updatedDateUM": "11.11.2025",
+      "updatedTimeUM": "11:15",
       "travelStatuses": [
         {
           "travelStatus": "high",
-          "headingText": "Vi fraråder alle rejser til:\n                                    Hele landet.",
+          "headingText": "Vi fraråder alle rejser til: Hele landet.",
           "contentText": "Meget høj sikkerhedsrisiko. Hvis du vælger at rejse, bør du søge professionel rådgivning."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  11.11.2025 Kl. 11:15"
+      ]
     },
     {
+      "httpCodeUM": 200,
       "country": "Ungarn",
+      "updatedDateUM": "11.11.2025",
+      "updatedTimeUM": "11:31",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  11.11.2025 Kl. 11:31"
+      ]
     },
     {
-      "country": "",
-      "travelStatuses": [],
       "httpCodeUM": 204,
-      "updatedTimeUM": "",
       "errorMessage": "No travel advice available for VA."
     },
     {
+      "httpCodeUM": 200,
       "country": "Østrig",
+      "updatedDateUM": "04.11.2025",
+      "updatedTimeUM": "14:25",
       "travelStatuses": [
         {
           "travelStatus": "minimal",
-          "headingText": "Vær opmærksom:\n                                    Hele landet.",
+          "headingText": "Vær opmærksom: Hele landet.",
           "contentText": "Brug din sunde fornuft og vær opmærksom på mistænkelig adfærd som du ville være det, hvis du var i Danmark."
         }
-      ],
-      "httpCodeUM": 200,
-      "updatedTimeUM": "Rejsevejledning opdateret:  04.11.2025 Kl. 14:25"
+      ]
     }
-  ],
-  "httpCode": 200,
-  "retrievedTime": "2025-12-10T08:22:09.273Z",
-  "version": "1.0.0"
+  ]
 }

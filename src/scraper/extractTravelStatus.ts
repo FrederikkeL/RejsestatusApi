@@ -9,59 +9,72 @@ export async function extractTravelStatus(
   countryCode: string,
   useMock: boolean,
 ) {
-  const countryResponse: CountryResponse = {
-    country: "",
-    travelStatuses: [],
-    httpCodeUM: 0,
-    updatedTimeUM: "",
-  };
+  let errorMessage = "";
+  let httpCodeUM = 0;
+  let travelStatuses: TravelStatus[] = [];
+  let updatedTimeUM = "";
+  let updatedDateUM = "";
 
   const html = await fetchPage(countryCode, useMock);
 
   if (html === "notfound") {
-    countryResponse.errorMessage = `Travel advice for [${countryCode}] not found (404).`;
-    countryResponse.httpCodeUM = 404;
-    return countryResponse;
+    httpCodeUM = 404;
+    errorMessage = `Travel advice for ${countryCode} not found (404).`;
+    return {
+      httpCodeUM,
+      errorMessage,
+    } as CountryResponse;
   }
 
   if (html === "servererror") {
-    countryResponse.errorMessage = `Server error when fetching travel advice for [${countryCode}] (500).`;
-    countryResponse.httpCodeUM = 500;
-    return countryResponse;
+    httpCodeUM = 500;
+    errorMessage = `Server error when fetching travel advice for ${countryCode} (500).`;
+    return {
+      httpCodeUM,
+      errorMessage,
+    } as CountryResponse;
   }
 
   if (html === "emptykey") {
-    countryResponse.errorMessage = `Country code [${countryCode}] doesn't have a path key defined (400).`;
-    countryResponse.httpCodeUM = 400;
-    return countryResponse;
+    httpCodeUM = 400;
+    errorMessage = `Country code ${countryCode} doesn't have a path key defined (400).`;
+    return {
+      httpCodeUM,
+      errorMessage,
+    } as CountryResponse;
   }
 
   const $ = load(html);
 
   const pageTitle = extractPageTitle($);
-  const travelStatuses = extractStatuses($);
-  const updatedTimeUM = $(".col-8").text().trim();
+  travelStatuses = extractStatuses($);
+  updatedTimeUM = extractTime($(".col-8").text().trim());
+  updatedDateUM = extractDate($(".col-8").text().trim());
 
   if (
     pageTitle.toLowerCase().includes("vi har ingen rejsevejledning for") ||
     !pageTitle
   ) {
-    countryResponse.country = "";
-    countryResponse.httpCodeUM = 204;
-    countryResponse.errorMessage = `No travel advice available for ${countryCode}.`;
-    return countryResponse;
+    httpCodeUM = 204;
+    errorMessage = `No travel advice available for ${countryCode}.`;
+    return {
+      httpCodeUM,
+      errorMessage,
+    } as CountryResponse;
   }
 
-  countryResponse.country = pageTitle;
-  countryResponse.travelStatuses = travelStatuses;
-  countryResponse.updatedTimeUM = updatedTimeUM;
-  countryResponse.httpCodeUM = 200;
-  return countryResponse;
+  return {
+    httpCodeUM: 200,
+    country: pageTitle,
+    updatedDateUM,
+    updatedTimeUM,
+    travelStatuses,
+  } as CountryResponse;
 }
 
 function extractPageTitle($: CheerioAPI): string {
   const name = $(".page-title").text().trim();
-  return name;
+  return cleanString(name);
 }
 
 function extractStatuses($: CheerioAPI): TravelStatus[] {
@@ -75,10 +88,11 @@ function extractStatuses($: CheerioAPI): TravelStatus[] {
     .map((h2) => {
       const heading = $(h2);
 
-      const travelStatus =
+      const travelStatus = cleanString(
         heading
           .attr("class")
-          ?.match(/module-travel-advice-(minimal|low|high)/)?.[1] ?? null;
+          ?.match(/module-travel-advice-(minimal|low|high)/)?.[1] ?? null,
+      );
 
       const sibling = heading
         .nextAll()
@@ -87,8 +101,23 @@ function extractStatuses($: CheerioAPI): TravelStatus[] {
 
       return {
         travelStatus,
-        headingText: heading.text().trim(),
-        contentText: sibling.text().trim(),
+        headingText: cleanString(heading.text().trim()),
+        contentText: cleanString(sibling.text().trim()),
       };
     });
+}
+
+function cleanString(input: string): string {
+  if (!input) return "";
+  return input.replace(/\r?\n+/g, "").replace(/ {2,}/g, " ");
+}
+
+function extractDate(input: string): string {
+  const match = input.match(/(\d{1,2}[.\-/]\d{1,2}[.\-/]\d{4})/);
+  return match ? match[1] : "";
+}
+
+function extractTime(input: string): string {
+  const match = input.match(/[Kk][Ll]\.?\s*(\d{1,2}:\d{2}(?::\d{2})?)/);
+  return match ? match[1] : "";
 }
