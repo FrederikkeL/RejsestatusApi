@@ -114,10 +114,14 @@ function cleanString(input: string): string {
 
 function extractDate(input: string): string {
   const match = input.match(/(\d{1,2}[.\-/]\d{1,2}[.\-/]\d{4})/);
-  return match ? match[1] : "";
+  if (!match) return "";
+
+  return match[1].replace(/[.\-/]/g, ".");
 }
 
 function extractTime(input: string): string {
-  const match = input.match(/[Kk][Ll]\.?\s*(\d{1,2}:\d{2}(?::\d{2})?)/);
-  return match ? match[1] : "";
+  const match = input.match(/[Kk][Ll]\.?\s*(\d{1,2}[:.]\d{2}(?:[:.]\d{2})?)/);
+  if (!match) return "";
+
+  return match[1].replace(/[:]/g, ".");
 }
