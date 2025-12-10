@@ -1,19 +1,19 @@
 {
   "httpCode": 200,
-  "retrievedTime": "10.12.2025, 13.12.38",
+  "retrievedTime": "10.12.2025, 14.40.50",
   "version": "1.0.0",
   "countries": [
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for AL."
+      "errorMessage": "No travel advice available for Albania."
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for AD."
+      "errorMessage": "No travel advice available for Andorra."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for PTA not found (404)."
+      "errorMessage": "Travel advice for Azores not found (404)."
     },
     {
       "httpCodeUM": 200,
@@ -56,15 +56,15 @@
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for CY."
+      "errorMessage": "No travel advice available for Cyprus."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for DK not found (404)."
+      "errorMessage": "Travel advice for Denmark not found (404)."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for ESC not found (404)."
+      "errorMessage": "Travel advice for Canary Islands not found (404)."
     },
     {
       "httpCodeUM": 200,
@@ -107,11 +107,11 @@
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for FO not found (404)."
+      "errorMessage": "Travel advice for Faroe Islands not found (404)."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for GI not found (404)."
+      "errorMessage": "Travel advice for Gibraltar not found (404)."
     },
     {
       "httpCodeUM": 200,
@@ -128,7 +128,7 @@
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for GL not found (404)."
+      "errorMessage": "Travel advice for Greenland not found (404)."
     },
     {
       "httpCodeUM": 200,
@@ -145,7 +145,7 @@
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for BY."
+      "errorMessage": "No travel advice available for Belarus."
     },
     {
       "httpCodeUM": 200,
@@ -175,7 +175,7 @@
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for IM not found (404)."
+      "errorMessage": "Travel advice for Isle of Man not found (404)."
     },
     {
       "httpCodeUM": 200,
@@ -192,15 +192,15 @@
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for JE not found (404)."
+      "errorMessage": "Travel advice for Jersey not found (404)."
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for KZ."
+      "errorMessage": "No travel advice available for Kazakhstan."
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for XK."
+      "errorMessage": "No travel advice available for Kosovo."
     },
     {
       "httpCodeUM": 200,
@@ -230,7 +230,7 @@
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for LI."
+      "errorMessage": "No travel advice available for Liechtenstein."
     },
     {
       "httpCodeUM": 200,
@@ -247,22 +247,19 @@
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for LU."
+      "errorMessage": "No travel advice available for Luxembourg."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for PTM not found (404)."
+      "errorMessage": "Travel advice for Madeira not found (404)."
     },
     {
-      "httpCodeUM": 200,
-      "country": "Vi har ingen rejsevejledninger for Nordmakedonien",
-      "updatedDateUM": "",
-      "updatedTimeUM": "",
-      "travelStatuses": []
+      "httpCodeUM": 204,
+      "errorMessage": "No travel advice available for North Macedonia."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for MT not found (404)."
+      "errorMessage": "Travel advice for Malta not found (404)."
     },
     {
       "httpCodeUM": 200,
@@ -276,7 +273,7 @@
           "contentText": "Vær til enhver tid opmærksom på din personlige sikkerhed og hold dig opdateret om udviklingen via de lokale myndigheder, nyhedsmedierne og dit rejsebureau."
         },
         {
-          "travelStatus": "",
+          "travelStatus": "medium",
           "headingText": "Vi fraråder alle ikke-nødvendige rejser til: Transnistrien.",
           "contentText": "Risiciene er så alvorlige, at du bør have særlige grunde til at besøge området/landet. Vigtige forretningsrejser og presserende familiebegivenheder kan få rejsende til at vurdere, at et besøg er nødvendigt."
         }
@@ -284,11 +281,11 @@
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for MC."
+      "errorMessage": "No travel advice available for Monaco."
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for ME."
+      "errorMessage": "No travel advice available for Montenegro."
     },
     {
       "httpCodeUM": 200,
@@ -357,11 +354,11 @@
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for SM."
+      "errorMessage": "No travel advice available for San Marino."
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for CH."
+      "errorMessage": "No travel advice available for Switzerland."
     },
     {
       "httpCodeUM": 200,
@@ -378,11 +375,11 @@
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for SK."
+      "errorMessage": "No travel advice available for Slovakia."
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for SI."
+      "errorMessage": "No travel advice available for Slovenia."
     },
     {
       "httpCodeUM": 200,
@@ -448,7 +445,7 @@
           "contentText": "Vær til enhver tid opmærksom på din personlige sikkerhed og hold dig opdateret om udviklingen via de lokale myndigheder, nyhedsmedierne og dit rejsebureau."
         },
         {
-          "travelStatus": "",
+          "travelStatus": "medium",
           "headingText": "Vi fraråder alle ikke-nødvendige rejser til: De sydøstlige provinser Hatay, Kilis, Sirnak og Hakkari.",
           "contentText": "Risiciene er så alvorlige, at du bør have særlige grunde til at besøge området/landet. Vigtige forretningsrejser og presserende familiebegivenheder kan få rejsende til at vurdere, at et besøg er nødvendigt."
         },
@@ -500,7 +497,7 @@
     },
     {
       "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for VA."
+      "errorMessage": "No travel advice available for Vatican City."
     },
     {
       "httpCodeUM": 200,
