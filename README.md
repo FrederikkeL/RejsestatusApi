@@ -1,5 +1,6 @@
 # TravelStatusAPI
-The travelStatusAPI ___ the travel status from the foreign ministerium in Denmark. 
+
+The travelStatusAPI \_\_\_ the travel status from the foreign ministerium in Denmark.
 The response is formatted as metadata and a list of countries:
 
 ```
@@ -47,20 +48,22 @@ The response is formatted as metadata and a list of countries:
 
 ```
 
-## architecture 
+## architecture
 
 <img width="393" height="208" alt="image" src="https://github.com/user-attachments/assets/01c7915d-9843-474b-8827-a0950cbe128b" />
  
 The TravelStatus API is built with Express and fetches data from a local JSON-file. The scraper runs every hour as a CRONjob. The scraper uses Axios to retrieve HTML from the Danish Ministry of Foreign Affairs’ travel advisories, after which Cheerio extracts the necessary information. The data is then cached in the local JSON file. The project runs on Node.js, and uses Jest to write and run tests.
 
 ## Getting started
+
 When first starting up the project run
 
 ```
 
-npm install 
+npm install
 
 ```
+
 In dev mode first build the project by using command
 
 ```
@@ -68,6 +71,7 @@ In dev mode first build the project by using command
 npm run build
 
 ```
+
 Then start the api and cron scheduler
 
 ```
@@ -91,6 +95,7 @@ e.g for Finland
 http://localhost:3000/travelstatus/get/fi
 
 ## Testing
+
 To run jest tests use command
 
 ```
@@ -101,14 +106,14 @@ npm run test
 
 ## Deployment
 
-To deploy to Azure, run the Github workflow "Build and deploy Node.js app to Azure Web App - TravelStatusAPI" on the main branch. 
+To deploy to Azure, run the Github workflow "Build and deploy Node.js app to Azure Web App - TravelStatusAPI" on the main branch.
 
 ## Postman
-A postman test suite can be found here:
 
-[link]
+A postman test suite can be found [here](https://travelstatusapi.postman.co/workspace/TravelStatus-Workspace~66df0b2a-94d8-4676-b09e-5db347d23ba9/request/38240095-d7bec5af-4cf1-4477-ba56-bd4b0e9fedf8?action=share&creator=38240095&active-environment=50684975-b74f0fa5-e98d-4ee4-ab11-172f725650a8)
 
 ## Testdata
+
 We have a mock folder that our methods can use. In Cron shceduler can the second parameter be set to true for use mock and false to not use mock.
 
 ```
