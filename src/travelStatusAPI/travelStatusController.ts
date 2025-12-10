@@ -62,6 +62,7 @@ export const getTravelStatusByCountry = async (req: Request, res: Response) => {
   let country = "";
 
   if (process.env.JEST_WORKER_ID !== undefined) {
+  if (process.env.JEST_WORKER_ID !== undefined) {
     country = findMockDanishNameByCode(req.params.country);
     countryResponse = mockTravelStatus.countries.find(
       (ts) => ts.country?.toLowerCase() === country?.toLowerCase(),
