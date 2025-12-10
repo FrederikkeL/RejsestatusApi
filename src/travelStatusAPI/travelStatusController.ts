@@ -16,7 +16,6 @@ const dataPath = path.resolve(__dirname, "../caching/data.json");
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   let countryListResponse: CountryListResponse;
 
-  // Load mock or file
   if (process.env.JEST_WORKER_ID !== undefined) {
     countryListResponse = mockTravelStatus;
   } else {

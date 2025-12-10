@@ -5,10 +5,8 @@ import { extractTravelStatus } from "../scraper/extractTravelStatus";
 import type { CountryListResponse } from "../../types/travelStatusReponse";
 import { cacheJSON } from "../caching/caching";
 
-const jsonPath = path.resolve(
-  __dirname,
-  "../../../mockData/mockCountryPathKeys.json",
-);
+const jsonPath = path.resolve(__dirname, "../scraper/countryPathKeys.json");
+// load mock path keys "../../../mockData/mockCountryPathKeys.json"
 const pathKeys = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
 
 const countryListResponse: CountryListResponse = {} as CountryListResponse;
