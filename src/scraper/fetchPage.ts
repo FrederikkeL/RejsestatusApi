@@ -17,7 +17,6 @@ function getMockFilePath() {
 const mockFilePath = getMockFilePath();
 const mockdata = fs.readFileSync(mockFilePath, "utf-8");
 
-// Main function
 export async function fetchPage(countryCode: string, useMock: boolean) {
   if (useMock) {
     console.log("➡ Using mock HTML instead of real API call");
