@@ -34,6 +34,7 @@ jobs:
         with:
           name: node-app
           path: |
+            index.js
             dist/
             package.json
             package-lock.json
