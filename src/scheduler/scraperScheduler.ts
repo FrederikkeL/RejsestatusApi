@@ -10,7 +10,6 @@ const jsonPath = path.resolve(__dirname, "../scraper/countryPathKeys.json");
 const pathKeys = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
 
 const countryListResponse: CountryListResponse = {
-  httpCode: 200,
   retrievedTime: new Date().toLocaleString("da-DK", {
     timeZone: "Europe/Copenhagen",
   }),

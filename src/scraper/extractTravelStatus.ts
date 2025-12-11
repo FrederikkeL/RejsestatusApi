@@ -20,7 +20,7 @@ export async function extractTravelStatus(
 
   if (html === "notfound") {
     httpCodeUM = 404;
-    errorMessage = `Travel advice for ${findEnglishNameByCode(countryCode)} not found (404).`;
+    errorMessage = `Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for ${findEnglishNameByCode(countryCode)}.`;
     return {
       httpCodeUM,
       errorMessage,
@@ -49,15 +49,25 @@ export async function extractTravelStatus(
 
   const pageTitle = extractPageTitle($);
   travelStatuses = extractStatuses($);
-  updatedTimeUM = extractTime($(".col-8").text().trim());
-  updatedDateUM = extractDate($(".col-8").text().trim());
 
   if (
     pageTitle.toLowerCase().includes("vi har ingen rejsevejledning") ||
-    !pageTitle
+    travelStatuses.length === 0
   ) {
-    httpCodeUM = 204;
+    httpCodeUM = 404;
     errorMessage = `No travel advice available for ${findEnglishNameByCode(countryCode)}.`;
+    return {
+      httpCodeUM,
+      errorMessage,
+    } as CountryResponse;
+  }
+
+  updatedTimeUM = extractTime($(".col-8").text().trim());
+  updatedDateUM = extractDate($(".col-8").text().trim());
+
+  if (!pageTitle || !updatedDateUM || !updatedTimeUM) {
+    httpCodeUM = 500;
+    errorMessage = `Failed to extract complete travel advice data for ${findEnglishNameByCode(countryCode)}.`;
     return {
       httpCodeUM,
       errorMessage,
@@ -92,7 +102,7 @@ function extractStatuses($: CheerioAPI): TravelStatus[] {
       const travelStatus = cleanString(
         heading
           .attr("class")
-          ?.match(/module-travel-advice-(minimal|low|high|medium)/)?.[1] ??
+          ?.match(/module-travel-advice-(minimal|low|medium|high)/)?.[1] ??
           null,
       );
 

@@ -1,19 +1,18 @@
 {
-  "httpCode": 200,
-  "retrievedTime": "10.12.2025, 14.40.50",
+  "retrievedTime": "11.12.2025, 13.23.01",
   "version": "1.0.0",
   "countries": [
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Albania."
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Andorra."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Azores not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Azores."
     },
     {
       "httpCodeUM": 200,
@@ -55,16 +54,16 @@
       ]
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Cyprus."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Denmark not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Denmark."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Canary Islands not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Canary Islands."
     },
     {
       "httpCodeUM": 200,
@@ -107,11 +106,11 @@
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Faroe Islands not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Faroe Islands."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Gibraltar not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Gibraltar."
     },
     {
       "httpCodeUM": 200,
@@ -128,7 +127,7 @@
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Greenland not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Greenland."
     },
     {
       "httpCodeUM": 200,
@@ -144,7 +143,7 @@
       ]
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Belarus."
     },
     {
@@ -175,7 +174,7 @@
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Isle of Man not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Isle of Man."
     },
     {
       "httpCodeUM": 200,
@@ -192,14 +191,14 @@
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Jersey not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Jersey."
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Kazakhstan."
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Kosovo."
     },
     {
@@ -229,7 +228,7 @@
       ]
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Liechtenstein."
     },
     {
@@ -246,20 +245,20 @@
       ]
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Luxembourg."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Madeira not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Madeira."
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for North Macedonia."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Malta not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Malta."
     },
     {
       "httpCodeUM": 200,
@@ -280,11 +279,11 @@
       ]
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Monaco."
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Montenegro."
     },
     {
@@ -353,11 +352,11 @@
       ]
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for San Marino."
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Switzerland."
     },
     {
@@ -374,11 +373,11 @@
       ]
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Slovakia."
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Slovenia."
     },
     {
@@ -496,7 +495,7 @@
       ]
     },
     {
-      "httpCodeUM": 204,
+      "httpCodeUM": 404,
       "errorMessage": "No travel advice available for Vatican City."
     },
     {
