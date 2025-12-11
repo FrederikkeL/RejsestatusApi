@@ -1,4 +1,4 @@
-import { getAllTravelStatuses } from "../src/travelStatusAPI/travelStatusController";
+import { getAllTravelStatuses } from "../src/routes/travelStatusAPI/travelStatusController";
 import mockTravelStatus from "../mockData/mockTravelStatus";
 import type { Request, Response } from "express";
 

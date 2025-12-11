@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mockTravelStatus = {
-    httpCode: 200,
     retrievedTime: "2023-10-01T12:00:00Z",
     version: "1.0.0",
     countries: [

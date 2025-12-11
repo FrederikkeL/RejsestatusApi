@@ -1,5 +1,5 @@
-import app from "./app";
-import router from "./travelStatusRoutes";
+import app from "./src/routes/travelStatusAPI/app";
+import router from "./src/routes/travelStatusAPI/travelStatusRoutes";
 
 app.use("/travelstatus", router);
 

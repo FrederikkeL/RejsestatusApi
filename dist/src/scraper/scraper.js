@@ -10,7 +10,6 @@ async function main(useMock) {
         const country = await (0, extractTravelStatus_1.extractTravelStatus)("FI", useMock);
         const country2 = await (0, extractTravelStatus_1.extractTravelStatus)("FI", useMock);
         countryListResponse = {
-            httpCode: 200,
             retrievedTime: new Date().toISOString(),
             version: "1.0.0",
             countries: [country, country2],
@@ -19,7 +18,6 @@ async function main(useMock) {
     else {
         const country = await (0, extractTravelStatus_1.extractTravelStatus)("FI", useMock);
         countryListResponse = {
-            httpCode: 200,
             retrievedTime: new Date().toISOString(),
             version: "1.0.0",
             countries: [country],

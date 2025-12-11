@@ -7,5 +7,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "types", "mockData"]
+  "include": ["src", "types", "mockData", "index.ts"]
 }
