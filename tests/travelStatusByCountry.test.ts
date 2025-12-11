@@ -1,4 +1,4 @@
-import { getTravelStatusByCountry } from "./../src/travelStatusAPI/travelStatusController";
+import { getTravelStatusByCountry } from "./../src/routes/travelStatusAPI/travelStatusController";
 import mockTravelStatus from "./../mockData/mockTravelStatus";
 import { Request, Response } from "express";
 
@@ -25,7 +25,7 @@ describe("getTravelStatusByCountry", () => {
     getTravelStatusByCountry(req as Request, res as Response);
 
     const expectedTravelStatus = mockTravelStatus.countries.find(
-      (ts) => ts.country.toLowerCase() === "finland",
+      (ts) => ts.country?.toLowerCase() === "finland",
     );
 
     expect(statusMock).toHaveBeenCalledWith(200);

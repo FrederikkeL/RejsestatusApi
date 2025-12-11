@@ -3,57 +3,36 @@ import {
   findDanishNameByCode,
   findMockDanishNameByCode,
   findEnglishNameByCode,
-} from "../helpers/pathKeysHelpers";
-import mockTravelStatus from "../../mockData/mockTravelStatus";
+} from "../../helpers/pathKeysHelpers";
+import mockTravelStatus from "../../../mockData/mockTravelStatus";
 import path from "path";
 import fs from "fs";
 import {
   CountryListResponse,
   CountryResponse,
-} from "../../types/travelStatusReponse";
+} from "../../../types/travelStatusReponse";
 
-const dataPath = path.resolve(__dirname, "../caching/data.json");
+const dataPath = path.resolve(__dirname, "../../caching/data.json");
 
 export const getAllTravelStatuses = (req: Request, res: Response) => {
-  let countryListResponse: CountryListResponse;
+  try {
+    const countryListResponse: CountryListResponse | null =
+      process.env.JEST_WORKER_ID !== undefined
+        ? mockTravelStatus
+        : JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 
-  if (process.env.JEST_WORKER_ID !== undefined) {
-    countryListResponse = mockTravelStatus;
-  } else {
-    countryListResponse = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
-  }
-
-  if (!countryListResponse) {
-    return res.status(404).json({
-      message: "Travel statuses are not available.",
-    });
-  }
-
-  switch (countryListResponse.httpCode) {
-    case 200:
-      return res.status(200).json(countryListResponse);
-
-    case 500:
-      return res.status(500).json({
-        message:
-          "Udenrigsministeriet's website is down, can't show travel statuses currently.",
-      });
-
-    case 503:
-      return res.status(503).json({
-        message:
-          "Travel status service is down, can't show travel statuses currently.",
-      });
-
-    case 404:
+    if (!countryListResponse) {
       return res.status(404).json({
         message: "Travel statuses are not available.",
       });
+    }
 
-    default:
-      return res.status(500).json({
-        message: "An unexpected error occurred.",
-      });
+    return res.status(200).json(countryListResponse);
+  } catch (error) {
+    console.error("Failed to retrieve travel statuses:", error);
+    return res.status(500).json({
+      message: "Internal server error while fetching travel statuses.",
+    });
   }
 };
 

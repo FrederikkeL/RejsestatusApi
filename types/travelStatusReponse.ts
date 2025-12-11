@@ -1,5 +1,4 @@
 export interface CountryListResponse {
-  httpCode: number;
   retrievedTime: string;
   version: string;
   countries: CountryResponse[];

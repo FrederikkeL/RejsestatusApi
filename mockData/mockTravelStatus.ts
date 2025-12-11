@@ -1,7 +1,6 @@
 import type { CountryListResponse } from "../types/travelStatusReponse";
 
 const mockTravelStatus: CountryListResponse = {
-  httpCode: 200,
   retrievedTime: "2023-10-01T12:00:00Z",
   version: "1.0.0",
   countries: [
