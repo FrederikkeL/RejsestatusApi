@@ -8,7 +8,7 @@
     "dev": "npx ts-node index.ts",
     "build": "tsc && npm run copy-json",
     "copy-json": "copyfiles -u 1 src/**/*.json dist/src/",
-    "start": "node index.js",
+    "start": "node dist/index.js",
     "scrape": "node dist/src/scraper/scraper.js"
   },
   "repository": {
