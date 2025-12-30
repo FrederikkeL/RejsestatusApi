@@ -3,6 +3,10 @@ import { extractTravelStatus } from "../src/scraper/extractTravelStatus";
 import { cacheJSON } from "../src/caching/caching";
 import type { pathKey } from "../types/travelStatusReponse";
 
+jest.mock("node-cron", () => ({
+  schedule: jest.fn(),
+}));
+
 jest.mock("../src/scraper/extractTravelStatus");
 jest.mock("../src/caching/caching");
 
