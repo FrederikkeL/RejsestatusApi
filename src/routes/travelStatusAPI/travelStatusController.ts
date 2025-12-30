@@ -27,6 +27,14 @@ export const getAllTravelStatuses = (req: Request, res: Response) => {
       });
     }
 
+    if (countryListResponse.countries.length === 0) {
+      const message = countryListResponse.errorMessage?.includes("No path keys")
+        ? "Travel statuses are not available due to not being able to load pathkeys."
+        : "Travel statuses are not available";
+
+      return res.status(404).json({ message });
+    }
+
     return res.status(200).json(countryListResponse);
   } catch (error) {
     console.error("Failed to retrieve travel statuses:", error);
@@ -64,24 +72,14 @@ export const getTravelStatusByCountry = async (req: Request, res: Response) => {
     case 200:
       res.status(200).json(countryResponse);
       break;
-    case 204:
-      res.status(204).json({
-        message: `No travel advice available for ${findEnglishNameByCode(req.params.country)}.`,
-      });
-      break;
     case 500:
       res.status(500).json({
-        message: `Udenrigsministeriet's website is down, can't show travel status for ${findEnglishNameByCode(req.params.country)} currently.`,
-      });
-      break;
-    case 503:
-      res.status(503).json({
-        message: `Travel status service is down, can't show travel status for ${findEnglishNameByCode(req.params.country)} currently.`,
+        message: countryResponse.errorMessage,
       });
       break;
     case 404:
       res.status(404).json({
-        message: `Travel status for ${findEnglishNameByCode(req.params.country)} is not available.`,
+        message: countryResponse.errorMessage,
       });
       break;
     default:

@@ -2,32 +2,60 @@ import cron from "node-cron";
 import path from "path";
 import fs from "fs";
 import { extractTravelStatus } from "../scraper/extractTravelStatus";
-import type { CountryListResponse } from "../../types/travelStatusReponse";
+import type {
+  CountryListResponse,
+  pathKey,
+} from "../../types/travelStatusReponse";
 import { cacheJSON } from "../caching/caching";
 
-const jsonPath = path.resolve(__dirname, "../scraper/countryPathKeys.json");
 // load mock path keys "../../../mockData/mockCountryPathKeys.json"
+// or real path keys "../scraper/countryPathKeys.json"
+const jsonPath = path.resolve(__dirname, "../scraper/countryPathKeys.json");
 const pathKeys = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
-
-const countryListResponse: CountryListResponse = {
-  retrievedTime: new Date().toLocaleString("da-DK", {
-    timeZone: "Europe/Copenhagen",
-  }),
-  version: "1.0.0",
-  countries: [],
-} as CountryListResponse;
 
 cron.schedule("*/30 * * * * *", async () => {
   //"*/30 * * * * *" for every 30 seconds
+  runScraperForAllCountries(pathKeys);
+});
+
+export async function runScraperForAllCountries(
+  pathKeys: pathKey[],
+  useMock = false,
+) {
+  const countryListResponse: CountryListResponse = {
+    retrievedTime: new Date().toLocaleString("da-DK", {
+      timeZone: "Europe/Copenhagen",
+    }),
+    version: "1.0.0",
+    countries: [],
+  };
+
+  if (pathKeys.length === 0) {
+    countryListResponse.errorMessage =
+      "No path keys available to run the scraper.";
+    cacheJSON(countryListResponse);
+    return;
+  }
 
   countryListResponse.countries = [];
+  const maxRetries = 3;
+
   for (const pathKey of pathKeys) {
-    const country = await runScraperHourly(pathKey.code);
+    let country;
+
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      country = await runScraperHourly(pathKey.code, useMock);
+
+      if (country.httpCodeUM !== 500) {
+        break;
+      }
+    }
     countryListResponse.countries.push(country);
   }
   cacheJSON(countryListResponse);
-});
+  return countryListResponse;
+}
 
-function runScraperHourly(countryCode: string) {
-  return extractTravelStatus(countryCode, false);
+function runScraperHourly(countryCode: string, useMock: boolean) {
+  return extractTravelStatus(countryCode, useMock);
 }
