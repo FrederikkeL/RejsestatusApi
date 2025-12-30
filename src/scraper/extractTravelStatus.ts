@@ -3,75 +3,66 @@ import { fetchPage } from "./fetchPage";
 import type {
   CountryResponse,
   TravelStatus,
+  TravelStatusLevel,
 } from "../../types/travelStatusReponse";
 import { findEnglishNameByCode } from "../helpers/pathKeysHelpers";
 
 export async function extractTravelStatus(
   countryCode: string,
   useMock: boolean,
-) {
-  let errorMessage = "";
-  let httpCodeUM = 0;
-  let travelStatuses: TravelStatus[] = [];
-  let updatedTimeUM = "";
-  let updatedDateUM = "";
-
+): Promise<CountryResponse> {
   const html = await fetchPage(countryCode, useMock);
 
   if (html === "notfound") {
-    httpCodeUM = 404;
-    errorMessage = `Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for ${findEnglishNameByCode(countryCode)}.`;
     return {
-      httpCodeUM,
-      errorMessage,
-    } as CountryResponse;
+      httpCodeUM: 404,
+      errorMessage: `Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for ${findEnglishNameByCode(countryCode)}.`,
+    };
   }
 
   if (html === "servererror") {
-    httpCodeUM = 500;
-    errorMessage = `Server error when fetching travel advice for ${findEnglishNameByCode(countryCode)} (500).`;
     return {
-      httpCodeUM,
-      errorMessage,
-    } as CountryResponse;
+      httpCodeUM: 500,
+      errorMessage: `Server error when fetching travel advice for ${findEnglishNameByCode(countryCode)} (500).`,
+    };
   }
 
   if (html === "emptykey") {
-    httpCodeUM = 400;
-    errorMessage = `Country code ${findEnglishNameByCode(countryCode)} doesn't have a path key defined (400).`;
     return {
-      httpCodeUM,
-      errorMessage,
-    } as CountryResponse;
+      httpCodeUM: 404,
+      errorMessage: `Country code ${findEnglishNameByCode(countryCode)} doesn't have a path key defined.`,
+    };
   }
 
   const $ = load(html);
 
   const pageTitle = extractPageTitle($);
-  travelStatuses = extractStatuses($);
+  const travelStatuses = extractStatuses($);
 
   if (
     pageTitle.toLowerCase().includes("vi har ingen rejsevejledning") ||
     travelStatuses.length === 0
   ) {
-    httpCodeUM = 404;
-    errorMessage = `No travel advice available for ${findEnglishNameByCode(countryCode)}.`;
     return {
-      httpCodeUM,
-      errorMessage,
-    } as CountryResponse;
+      httpCodeUM: 404,
+      errorMessage: `No travel advice available for ${findEnglishNameByCode(countryCode)}.`,
+    };
   }
 
-  updatedTimeUM = extractTime($(".col-8").text().trim());
-  updatedDateUM = extractDate($(".col-8").text().trim());
+  const text = $(".col-8").text().trim();
+  const updatedTimeUM = extractTime(text);
+  const updatedDateUM = extractDate(text);
 
-  if (!pageTitle || !updatedDateUM || !updatedTimeUM) {
-    httpCodeUM = 500;
-    errorMessage = `Failed to extract complete travel advice data for ${findEnglishNameByCode(countryCode)}.`;
+  if (
+    !pageTitle ||
+    !updatedDateUM ||
+    !updatedTimeUM ||
+    !validateTravelStatuses(travelStatuses)
+  ) {
     return {
-      httpCodeUM,
-      errorMessage,
-    } as CountryResponse;
+      httpCodeUM: 500,
+      errorMessage: `Failed to extract complete travel advice data for ${findEnglishNameByCode(countryCode)}.`,
+    };
   }
 
   return {
@@ -80,7 +71,7 @@ export async function extractTravelStatus(
     updatedDateUM,
     updatedTimeUM,
     travelStatuses,
-  } as CountryResponse;
+  };
 }
 
 function extractPageTitle($: CheerioAPI): string {
@@ -89,22 +80,17 @@ function extractPageTitle($: CheerioAPI): string {
 }
 
 function extractStatuses($: CheerioAPI): TravelStatus[] {
-  const container = $(
-    ".module-text-accordion-content.module-travel-advice-labels",
-  );
-
-  return container
+  return $(".module-text-accordion-content.module-travel-advice-labels")
     .children("h2")
     .toArray()
-    .map((h2) => {
+    .map((h2): TravelStatus => {
       const heading = $(h2);
 
-      const travelStatus = cleanString(
-        heading
-          .attr("class")
-          ?.match(/module-travel-advice-(minimal|low|medium|high)/)?.[1] ??
-          null,
-      );
+      const match = heading
+        .attr("class")
+        ?.match(/module-travel-advice-(minimal|low|medium|high)/);
+
+      const travelStatus = (match?.[1] as TravelStatusLevel) ?? null;
 
       const sibling = heading
         .nextAll()
@@ -136,4 +122,13 @@ function extractTime(input: string): string {
   if (!match) return "";
 
   return match[1].replace(/[:]/g, ".");
+}
+
+function validateTravelStatuses(statuses: TravelStatus[]): boolean {
+  for (const status of statuses) {
+    if (!status.travelStatus || !status.headingText || !status.contentText) {
+      return false;
+    }
+  }
+  return true;
 }

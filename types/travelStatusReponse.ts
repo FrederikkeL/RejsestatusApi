@@ -1,5 +1,6 @@
 export interface CountryListResponse {
   retrievedTime: string;
+  errorMessage?: string;
   version: string;
   countries: CountryResponse[];
 }
@@ -14,7 +15,16 @@ export interface CountryResponse {
 }
 
 export interface TravelStatus {
-  travelStatus: string;
+  travelStatus: TravelStatusLevel;
   headingText: string;
   contentText: string;
+}
+
+export type TravelStatusLevel = "minimal" | "low" | "medium" | "high" | null;
+
+export interface pathKey {
+  code: string;
+  english: string;
+  danish: string;
+  pathKey: string;
 }
