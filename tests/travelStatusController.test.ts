@@ -12,7 +12,7 @@ jest.mock("../src/helpers/pathKeysHelpers");
 describe("Travel Status Controller", () => {
   let mockReq: Partial<Request> & { params: Record<string, string> };
   let mockRes: Partial<Response>;
-  
+
   beforeEach(() => {
     jest.clearAllMocks();
 

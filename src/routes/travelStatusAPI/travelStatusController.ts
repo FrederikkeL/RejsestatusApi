@@ -9,7 +9,6 @@ import {
   CountryListResponse,
   CountryResponse,
 } from "../../../types/travelStatusReponse";
-//import mockTravelStatus from "../../../mockData/mockTravelStatus";
 
 const dataPath = path.resolve(__dirname, "../../caching/data.json");
 
@@ -19,10 +18,6 @@ function getCachedData(): CountryListResponse {
 
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   try {
-    // const countryListResponse: CountryListResponse | null =
-    //   process.env.JEST_WORKER_ID !== undefined
-    //     ? mockTravelStatus
-    //     : getCachedData();
     const countryListResponse: CountryListResponse = getCachedData();
 
     if (!countryListResponse || countryListResponse.countries.length === 0) {
