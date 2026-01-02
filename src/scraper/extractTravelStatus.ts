@@ -23,7 +23,7 @@ export async function extractTravelStatus(
   if (html === "servererror") {
     return {
       httpCodeUM: 500,
-      errorMessage: `Server error when fetching travel advice for ${findEnglishNameByCode(countryCode)} (500).`,
+      errorMessage: `Server error when fetching travel advice for ${findEnglishNameByCode(countryCode)}.`,
     };
   }
 
@@ -125,10 +125,7 @@ function extractTime(input: string): string {
 }
 
 function validateTravelStatuses(statuses: TravelStatus[]): boolean {
-  for (const status of statuses) {
-    if (!status.travelStatus || !status.headingText || !status.contentText) {
-      return false;
-    }
-  }
-  return true;
+  return statuses.every(
+    (s) => s.travelStatus && s.headingText && s.contentText,
+  );
 }
