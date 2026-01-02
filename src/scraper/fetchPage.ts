@@ -2,17 +2,6 @@ import fs from "fs";
 import axios from "axios";
 import { findPathKeyByCode } from "../helpers/pathKeysHelpers";
 
-// Helper to get the mock file path depending on environment
-function getMockFilePath() {
-  if (process.env.JEST_WORKER_ID !== undefined) {
-    // Running in Jest — mock file relative to test file
-    return "mockData/mockCambodja.html";
-  } else {
-    // Running normally — back out a few directories
-    return "mockData/mockCambodja.html";
-  }
-}
-
 // Load mock data once
 const mockFilePath = getMockFilePath();
 const mockdata = fs.readFileSync(mockFilePath, "utf-8");
@@ -48,5 +37,16 @@ export async function fetchPage(countryCode: string, useMock: boolean) {
       console.error("Unexpected error:", err);
       throw err;
     }
+  }
+}
+
+// Helper to get the mock file path depending on environment
+function getMockFilePath() {
+  if (process.env.JEST_WORKER_ID !== undefined) {
+    // Running in Jest — mock file relative to test file
+    return "mockData/mockCambodja.html";
+  } else {
+    // Running normally — back out a few directories
+    return "mockData/mockCambodja.html";
   }
 }
