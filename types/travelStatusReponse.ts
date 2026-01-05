@@ -7,6 +7,7 @@ export interface CountryListResponse {
 
 export interface CountryResponse {
   country?: string;
+  pathKey?: string;
   httpCodeUM: number;
   errorMessage?: string;
   updatedTimeUM?: string;

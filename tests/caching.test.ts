@@ -1,4 +1,4 @@
-import { cacheJSON } from "../src/caching/caching"; // update path
+import { cacheJSON } from "../src/caching/caching";
 import fs from "fs/promises";
 import { CountryListResponse } from "../types/travelStatusReponse";
 

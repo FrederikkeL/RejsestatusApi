@@ -5,7 +5,10 @@ import type {
   TravelStatus,
   TravelStatusLevel,
 } from "../../types/travelStatusReponse";
-import { findEnglishNameByCode } from "../helpers/pathKeysHelpers";
+import {
+  findEnglishNameByCode,
+  findPathKeyByCode,
+} from "../helpers/pathKeysHelpers";
 
 export async function extractTravelStatus(
   countryCode: string,
@@ -68,6 +71,7 @@ export async function extractTravelStatus(
   return {
     httpCodeUM: 200,
     country: pageTitle,
+    pathKey: findPathKeyByCode(countryCode),
     updatedDateUM,
     updatedTimeUM,
     travelStatuses,
