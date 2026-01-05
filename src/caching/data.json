@@ -1,5 +1,5 @@
 {
-  "retrievedTime": "11.12.2025, 13.23.01",
+  "retrievedTime": "5.1.2026, 14.32.30",
   "version": "1.0.0",
   "countries": [
     {
@@ -17,6 +17,7 @@
     {
       "httpCodeUM": 200,
       "country": "Belgien",
+      "pathKey": "belgien",
       "updatedDateUM": "11.11.2025",
       "updatedTimeUM": "15.51",
       "travelStatuses": [
@@ -30,6 +31,7 @@
     {
       "httpCodeUM": 200,
       "country": "Bosnien-Hercegovina",
+      "pathKey": "bosnien-hercegovina",
       "updatedDateUM": "24.10.2025",
       "updatedTimeUM": "15.42",
       "travelStatuses": [
@@ -43,6 +45,7 @@
     {
       "httpCodeUM": 200,
       "country": "Bulgarien",
+      "pathKey": "bulgarien",
       "updatedDateUM": "11.11.2025",
       "updatedTimeUM": "16.08",
       "travelStatuses": [
@@ -68,6 +71,7 @@
     {
       "httpCodeUM": 200,
       "country": "Estland",
+      "pathKey": "estland",
       "updatedDateUM": "04.11.2025",
       "updatedTimeUM": "12.11",
       "travelStatuses": [
@@ -81,6 +85,7 @@
     {
       "httpCodeUM": 200,
       "country": "Finland",
+      "pathKey": "finland",
       "updatedDateUM": "07.11.2025",
       "updatedTimeUM": "13.44",
       "travelStatuses": [
@@ -94,6 +99,7 @@
     {
       "httpCodeUM": 200,
       "country": "Frankrig",
+      "pathKey": "frankrig",
       "updatedDateUM": "29.10.2025",
       "updatedTimeUM": "16.48",
       "travelStatuses": [
@@ -115,6 +121,7 @@
     {
       "httpCodeUM": 200,
       "country": "Grækenland",
+      "pathKey": "graekenland",
       "updatedDateUM": "17.11.2025",
       "updatedTimeUM": "16.03",
       "travelStatuses": [
@@ -132,6 +139,7 @@
     {
       "httpCodeUM": 200,
       "country": "Nederlandene",
+      "pathKey": "nederlandene",
       "updatedDateUM": "14.11.2025",
       "updatedTimeUM": "13.12",
       "travelStatuses": [
@@ -149,6 +157,7 @@
     {
       "httpCodeUM": 200,
       "country": "Irland",
+      "pathKey": "irland",
       "updatedDateUM": "12.11.2025",
       "updatedTimeUM": "14.03",
       "travelStatuses": [
@@ -162,6 +171,7 @@
     {
       "httpCodeUM": 200,
       "country": "Island",
+      "pathKey": "island",
       "updatedDateUM": "07.11.2025",
       "updatedTimeUM": "13.39",
       "travelStatuses": [
@@ -179,6 +189,7 @@
     {
       "httpCodeUM": 200,
       "country": "Italien",
+      "pathKey": "italien",
       "updatedDateUM": "29.10.2025",
       "updatedTimeUM": "14.01",
       "travelStatuses": [
@@ -204,6 +215,7 @@
     {
       "httpCodeUM": 200,
       "country": "Kroatien",
+      "pathKey": "kroatien",
       "updatedDateUM": "07.11.2025",
       "updatedTimeUM": "15.48",
       "travelStatuses": [
@@ -217,6 +229,7 @@
     {
       "httpCodeUM": 200,
       "country": "Letland",
+      "pathKey": "letland",
       "updatedDateUM": "17.11.2025",
       "updatedTimeUM": "10.14",
       "travelStatuses": [
@@ -234,6 +247,7 @@
     {
       "httpCodeUM": 200,
       "country": "Litauen",
+      "pathKey": "litauen",
       "updatedDateUM": "04.11.2025",
       "updatedTimeUM": "10.57",
       "travelStatuses": [
@@ -263,6 +277,7 @@
     {
       "httpCodeUM": 200,
       "country": "Moldova",
+      "pathKey": "moldova",
       "updatedDateUM": "29.10.2025",
       "updatedTimeUM": "14.21",
       "travelStatuses": [
@@ -289,6 +304,7 @@
     {
       "httpCodeUM": 200,
       "country": "Norge",
+      "pathKey": "norge",
       "updatedDateUM": "24.10.2025",
       "updatedTimeUM": "16.30",
       "travelStatuses": [
@@ -302,6 +318,7 @@
     {
       "httpCodeUM": 200,
       "country": "Polen",
+      "pathKey": "polen",
       "updatedDateUM": "04.12.2025",
       "updatedTimeUM": "12.17",
       "travelStatuses": [
@@ -315,6 +332,7 @@
     {
       "httpCodeUM": 200,
       "country": "Portugal",
+      "pathKey": "portugal",
       "updatedDateUM": "29.10.2025",
       "updatedTimeUM": "10.29",
       "travelStatuses": [
@@ -328,6 +346,7 @@
     {
       "httpCodeUM": 200,
       "country": "Rumænien",
+      "pathKey": "rumaenien",
       "updatedDateUM": "03.11.2025",
       "updatedTimeUM": "14.15",
       "travelStatuses": [
@@ -341,6 +360,7 @@
     {
       "httpCodeUM": 200,
       "country": "Rusland",
+      "pathKey": "rusland",
       "updatedDateUM": "01.12.2025",
       "updatedTimeUM": "15.04",
       "travelStatuses": [
@@ -362,6 +382,7 @@
     {
       "httpCodeUM": 200,
       "country": "Serbien",
+      "pathKey": "serbien",
       "updatedDateUM": "30.10.2025",
       "updatedTimeUM": "11.16",
       "travelStatuses": [
@@ -383,6 +404,7 @@
     {
       "httpCodeUM": 200,
       "country": "Spanien",
+      "pathKey": "spanien",
       "updatedDateUM": "03.11.2025",
       "updatedTimeUM": "14.32",
       "travelStatuses": [
@@ -396,6 +418,7 @@
     {
       "httpCodeUM": 200,
       "country": "Storbritannien og Nordirland",
+      "pathKey": "storbritannien",
       "updatedDateUM": "03.11.2025",
       "updatedTimeUM": "10.21",
       "travelStatuses": [
@@ -409,6 +432,7 @@
     {
       "httpCodeUM": 200,
       "country": "Sverige",
+      "pathKey": "sverige",
       "updatedDateUM": "11.11.2025",
       "updatedTimeUM": "11.39",
       "travelStatuses": [
@@ -422,6 +446,7 @@
     {
       "httpCodeUM": 200,
       "country": "Tjekkiet",
+      "pathKey": "tjekkiet",
       "updatedDateUM": "24.10.2025",
       "updatedTimeUM": "17.10",
       "travelStatuses": [
@@ -435,6 +460,7 @@
     {
       "httpCodeUM": 200,
       "country": "Tyrkiet",
+      "pathKey": "tyrkiet",
       "updatedDateUM": "08.12.2025",
       "updatedTimeUM": "14.08",
       "travelStatuses": [
@@ -458,6 +484,7 @@
     {
       "httpCodeUM": 200,
       "country": "Tyskland",
+      "pathKey": "tyskland",
       "updatedDateUM": "31.10.2025",
       "updatedTimeUM": "15.49",
       "travelStatuses": [
@@ -471,6 +498,7 @@
     {
       "httpCodeUM": 200,
       "country": "Ukraine",
+      "pathKey": "ukraine",
       "updatedDateUM": "11.11.2025",
       "updatedTimeUM": "11.15",
       "travelStatuses": [
@@ -484,6 +512,7 @@
     {
       "httpCodeUM": 200,
       "country": "Ungarn",
+      "pathKey": "ungarn",
       "updatedDateUM": "11.11.2025",
       "updatedTimeUM": "11.31",
       "travelStatuses": [
@@ -501,6 +530,7 @@
     {
       "httpCodeUM": 200,
       "country": "Østrig",
+      "pathKey": "oestrig",
       "updatedDateUM": "04.11.2025",
       "updatedTimeUM": "14.25",
       "travelStatuses": [

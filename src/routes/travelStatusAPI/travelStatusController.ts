@@ -3,18 +3,11 @@ import {
   findDanishNameByCode,
   findEnglishNameByCode,
 } from "../../helpers/pathKeysHelpers";
-import path from "path";
-import fs from "fs";
 import {
   CountryListResponse,
   CountryResponse,
 } from "../../../types/travelStatusReponse";
-
-const dataPath = path.resolve(__dirname, "../../caching/data.json");
-
-function getCachedData(): CountryListResponse {
-  return JSON.parse(fs.readFileSync(dataPath, "utf-8"));
-}
+import { getCachedData } from "../../helpers/cachedDataHelpers";  
 
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   try {

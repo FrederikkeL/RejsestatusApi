@@ -4,6 +4,7 @@ import fs from "fs";
 import { extractTravelStatus } from "../scraper/extractTravelStatus";
 import type {
   CountryListResponse,
+  CountryResponse,
   pathKey,
 } from "../../types/travelStatusReponse";
 import { cacheJSON } from "../caching/caching";
@@ -52,10 +53,15 @@ export async function runScraperForAllCountries(
     }
     countryListResponse.countries.push(country);
   }
-  cacheJSON(countryListResponse);
-  return countryListResponse;
+  if (validateTravelStatuses(countryListResponse.countries)) {
+    cacheJSON(countryListResponse);
+  }
 }
 
 function runScraperHourly(countryCode: string, useMock: boolean) {
   return extractTravelStatus(countryCode, useMock);
+}
+
+function validateTravelStatuses(countries: CountryResponse[]): boolean {
+  return countries.some((country) => country.httpCodeUM === 200);
 }
