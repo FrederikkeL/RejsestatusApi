@@ -7,7 +7,7 @@ import {
   CountryListResponse,
   CountryResponse,
 } from "../../../types/travelStatusReponse";
-import { getCachedData } from "../../helpers/cachedDataHelpers";  
+import { getCachedData } from "../../helpers/cachedDataHelpers";
 
 export const getAllTravelStatuses = (req: Request, res: Response) => {
   try {
