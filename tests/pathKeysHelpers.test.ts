@@ -1,4 +1,4 @@
-import * as pathKeysHelpers from "./../src/helpers/pathKeysHelpers"; // update to your file path
+import * as pathKeysHelpers from "./../src/helpers/pathKeysHelpers";
 import fs from "fs";
 
 jest.mock("fs");

@@ -40,7 +40,7 @@ describe("Scraper Cron Logic", () => {
 
     await runScraperForAllCountries(mockKeys);
 
-    expect(mockedExtract).toHaveBeenCalledWith("FI", false);
+    expect(mockedExtract).toHaveBeenCalledWith("FI");
 
     expect(mockedCache).toHaveBeenCalledWith(
       expect.objectContaining({

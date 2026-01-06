@@ -9,21 +9,16 @@ import type {
 } from "../../types/travelStatusReponse";
 import { cacheJSON } from "../caching/caching";
 
-// load mock path keys "../../../mockData/mockCountryPathKeys.json"
-// or real path keys "../scraper/countryPathKeys.json"
 const jsonPath = path.resolve(__dirname, "../scraper/countryPathKeys.json");
 const pathKeys = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
 
-cron.schedule("0 * * * *", async () => {
+cron.schedule("30 * * * * *", async () => {
   //"*/30 * * * * *" for every 30 seconds
-  //"* * * * *" for every minute
+  //"0 * * * *" for every hour at minute 0
   runScraperForAllCountries(pathKeys);
 });
 
-export async function runScraperForAllCountries(
-  pathKeys: pathKey[],
-  useMock = false,
-) {
+export async function runScraperForAllCountries(pathKeys: pathKey[]) {
   const countryListResponse: CountryListResponse = {
     retrievedTime: new Date().toLocaleString("da-DK", {
       timeZone: "Europe/Copenhagen",
@@ -46,7 +41,7 @@ export async function runScraperForAllCountries(
     let country;
 
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      country = await runScraperHourly(pathKey.code, useMock);
+      country = await extractTravelStatus(pathKey.code);
 
       if (country.httpCodeUM !== 500) {
         break;
@@ -54,13 +49,10 @@ export async function runScraperForAllCountries(
     }
     countryListResponse.countries.push(country);
   }
+  console.log(countryListResponse);
   if (validateTravelStatuses(countryListResponse.countries)) {
     cacheJSON(countryListResponse);
   }
-}
-
-function runScraperHourly(countryCode: string, useMock: boolean) {
-  return extractTravelStatus(countryCode, useMock);
 }
 
 function validateTravelStatuses(countries: CountryResponse[]): boolean {

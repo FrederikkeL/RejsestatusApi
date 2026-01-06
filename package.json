@@ -6,10 +6,12 @@
   "scripts": {
     "test": "jest --coverage",
     "dev": "npx ts-node index.ts",
-    "build": "tsc && npm run copy-json",
+    "build": "tsc && npm run copy-json && npm run copy-mock",
     "copy-json": "copyfiles -u 1 src/**/*.json dist/src/",
+    "copy-mock": "copyfiles -u 1 mockData/*.json dist/mockData/ && copyfiles -u 1 mockData/*.html dist/mockData/",
     "start": "node dist/index.js",
-    "scrape": "node dist/src/scraper/scraper.js"
+    "scrape:limited": "node dist/src/scraper/scraper.js",
+    "scrape:mock": "cross-env USE_MOCK=true node dist/src/scraper/scraper.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +44,7 @@
     "@types/node-cron": "^3.0.11",
     "babel-jest": "^30.2.0",
     "copyfiles": "^2.4.1",
+    "cross-env": "^10.1.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "jest": "^30.2.0",

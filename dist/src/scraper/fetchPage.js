@@ -7,24 +7,10 @@ exports.fetchPage = fetchPage;
 const fs_1 = __importDefault(require("fs"));
 const axios_1 = __importDefault(require("axios"));
 const pathKeysHelpers_1 = require("../helpers/pathKeysHelpers");
-// Helper to get the mock file path depending on environment
-function getMockFilePath() {
-    if (process.env.JEST_WORKER_ID !== undefined) {
-        // Running in Jest — mock file relative to test file
-        return "mockData/mockCambodja.html";
-    }
-    else {
-        // Running normally — back out a few directories
-        return "mockData/mockCambodja.html";
-    }
-}
-// Load mock data once
-const mockFilePath = getMockFilePath();
-const mockdata = fs_1.default.readFileSync(mockFilePath, "utf-8");
-// Main function
-async function fetchPage(countryCode, useMock) {
+const useMock = process.env.USE_MOCK === "true";
+async function fetchPage(countryCode) {
     if (useMock) {
-        console.log("➡ Using mock HTML instead of real API call");
+        const mockdata = fs_1.default.readFileSync("mockData/mockCambodja.html", "utf-8");
         return mockdata;
     }
     const countrypathKey = (0, pathKeysHelpers_1.findPathKeyByCode)(countryCode);
@@ -46,8 +32,7 @@ async function fetchPage(countryCode, useMock) {
             if (err.response?.status === 500) {
                 return "servererror";
             }
-            console.error("Unexpected error:", err);
-            throw err;
+            throw new Error(`Failed to fetch page: ${err.message}`);
         }
     }
 }

@@ -19,17 +19,10 @@ describe("fetchPage", () => {
     jest.clearAllMocks();
   });
 
-  it("should return mock data when useMock is true", async () => {
-    const result = await fetchPage(countryCode, true);
-
-    expect(result).toBe(mockHtmlContent);
-    expect(axios.get).not.toHaveBeenCalled();
-  });
-
   it("should return 'emptykey' if no path key is found", async () => {
     (helpers.findPathKeyByCode as jest.Mock).mockReturnValue(undefined);
 
-    const result = await fetchPage(countryCode, false);
+    const result = await fetchPage(countryCode);
 
     expect(result).toBe("emptykey");
   });
@@ -40,7 +33,7 @@ describe("fetchPage", () => {
       data: "<html>Real HTML</html>",
     });
 
-    const result = await fetchPage(countryCode, false);
+    const result = await fetchPage(countryCode);
 
     expect(axios.get).toHaveBeenCalledWith(
       expect.stringContaining(mockPathKey),
@@ -58,7 +51,7 @@ describe("fetchPage", () => {
     (axios.get as jest.Mock).mockRejectedValue(error);
     (axios.isAxiosError as unknown as jest.Mock).mockReturnValue(true);
 
-    const result = await fetchPage(countryCode, false);
+    const result = await fetchPage(countryCode);
 
     expect(result).toBe("notfound");
   });
@@ -73,7 +66,7 @@ describe("fetchPage", () => {
     (axios.get as jest.Mock).mockRejectedValue(error);
     (axios.isAxiosError as unknown as jest.Mock).mockReturnValue(true);
 
-    const result = await fetchPage(countryCode, false);
+    const result = await fetchPage(countryCode);
 
     expect(result).toBe("servererror");
   });

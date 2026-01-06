@@ -17,7 +17,7 @@ describe("extractTravelStatus", () => {
     it("should return 404 for 'notfound' response", async () => {
       (fetchPage as jest.Mock).mockResolvedValue("notfound");
 
-      const result = await extractTravelStatus(countryCode, false);
+      const result = await extractTravelStatus(countryCode);
 
       expect(result.httpCodeUM).toBe(404);
       expect(result.errorMessage).toContain("is not registered");
@@ -26,7 +26,7 @@ describe("extractTravelStatus", () => {
     it("should return 500 for 'servererror' response", async () => {
       (fetchPage as jest.Mock).mockResolvedValue("servererror");
 
-      const result = await extractTravelStatus(countryCode, false);
+      const result = await extractTravelStatus(countryCode);
 
       expect(result.httpCodeUM).toBe(500);
       expect(result.errorMessage).toContain("Server error");
@@ -35,7 +35,7 @@ describe("extractTravelStatus", () => {
     it("should return 404 for 'emptykey' response", async () => {
       (fetchPage as jest.Mock).mockResolvedValue("emptykey");
 
-      const result = await extractTravelStatus(countryCode, false);
+      const result = await extractTravelStatus(countryCode);
 
       expect(result.httpCodeUM).toBe(404);
       expect(result.errorMessage).toContain("doesn't have a path key defined");
@@ -47,7 +47,7 @@ describe("extractTravelStatus", () => {
       const mockHtml = `<h1 class="page-title">Vi har ingen rejsevejledning for Finland</h1>`;
       (fetchPage as jest.Mock).mockResolvedValue(mockHtml);
 
-      const result = await extractTravelStatus(countryCode, false);
+      const result = await extractTravelStatus(countryCode);
 
       expect(result.httpCodeUM).toBe(404);
       expect(result.errorMessage).toContain("No travel advice available");
@@ -71,7 +71,7 @@ describe("extractTravelStatus", () => {
 
       (fetchPage as jest.Mock).mockResolvedValue(sampleHtml);
 
-      const result = await extractTravelStatus("test", true);
+      const result = await extractTravelStatus("test");
 
       expect(result.country).toBe("Thailand");
       expect(result.updatedTimeUM).toBe("14.21");
@@ -110,7 +110,7 @@ describe("extractTravelStatus", () => {
       `;
       (fetchPage as jest.Mock).mockResolvedValue(mockHtml);
 
-      const result = await extractTravelStatus(countryCode, false);
+      const result = await extractTravelStatus(countryCode);
 
       expect(result.httpCodeUM).toBe(500);
       expect(result.errorMessage).toContain(
