@@ -14,8 +14,9 @@ import { cacheJSON } from "../caching/caching";
 const jsonPath = path.resolve(__dirname, "../scraper/countryPathKeys.json");
 const pathKeys = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
 
-cron.schedule("* * * * *", async () => {
+cron.schedule("0 * * * *", async () => {
   //"*/30 * * * * *" for every 30 seconds
+  //"* * * * *" for every minute
   runScraperForAllCountries(pathKeys);
 });
 
