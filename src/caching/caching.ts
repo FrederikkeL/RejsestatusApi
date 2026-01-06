@@ -4,6 +4,7 @@ import fs from "fs/promises";
 
 export async function cacheJSON(jsonCountryListResponse: CountryListResponse) {
   try {
+    console.log("Caching country data...");
     const filePath = path.join(__dirname, "data.json");
     const data = JSON.stringify(jsonCountryListResponse, null, 2);
     await fs.writeFile(filePath, data, "utf-8");

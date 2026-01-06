@@ -12,9 +12,8 @@ import {
 
 export async function extractTravelStatus(
   countryCode: string,
-  useMock: boolean,
 ): Promise<CountryResponse> {
-  const html = await fetchPage(countryCode, useMock);
+  const html = await fetchPage(countryCode);
 
   if (html === "notfound") {
     return {

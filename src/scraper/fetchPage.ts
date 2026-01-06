@@ -2,13 +2,11 @@ import fs from "fs";
 import axios from "axios";
 import { findPathKeyByCode } from "../helpers/pathKeysHelpers";
 
-// Load mock data once
-const mockFilePath = getMockFilePath();
-const mockdata = fs.readFileSync(mockFilePath, "utf-8");
+const useMock = process.env.USE_MOCK === "true";
 
-export async function fetchPage(countryCode: string, useMock: boolean) {
+export async function fetchPage(countryCode: string) {
   if (useMock) {
-    console.log("➡ Using mock HTML instead of real API call");
+    const mockdata = fs.readFileSync("mockData/mockCambodja.html", "utf-8");
     return mockdata;
   }
 
@@ -34,19 +32,7 @@ export async function fetchPage(countryCode: string, useMock: boolean) {
       if (err.response?.status === 500) {
         return "servererror";
       }
-      console.error("Unexpected error:", err);
-      throw err;
+      throw new Error(`Failed to fetch page: ${err.message}`);
     }
-  }
-}
-
-// Helper to get the mock file path depending on environment
-function getMockFilePath() {
-  if (process.env.JEST_WORKER_ID !== undefined) {
-    // Running in Jest — mock file relative to test file
-    return "mockData/mockCambodja.html";
-  } else {
-    // Running normally — back out a few directories
-    return "mockData/mockCambodja.html";
   }
 }

@@ -1,27 +1,25 @@
-import { extractTravelStatus } from "./extractTravelStatus";
-import { cacheJSON } from "../caching/caching";
-import type { CountryListResponse } from "../../types/travelStatusReponse";
-import "../scheduler/scraperScheduler";
+import { runScraperForAllCountries } from "../scheduler/scraperScheduler";
+import path from "path";
+import fs from "fs";
+import type { pathKey } from "../../types/travelStatusReponse";
 
-async function main(useMock) {
-  console.log("scraper has started");
-  let countryListResponse: CountryListResponse = null;
-  if (useMock) {
-    const country = await extractTravelStatus("FI", useMock);
-    const country2 = await extractTravelStatus("FI", useMock);
-    countryListResponse = {
-      retrievedTime: new Date().toISOString(),
-      version: "1.0.0",
-      countries: [country, country2],
-    };
-  } else {
-    const country = await extractTravelStatus("FI", useMock);
-    countryListResponse = {
-      retrievedTime: new Date().toISOString(),
-      version: "1.0.0",
-      countries: [country],
-    };
-    cacheJSON(countryListResponse);
-  }
+let jsonPath;
+if (process.env.USE_MOCK === "true") {
+  jsonPath = path.resolve(__dirname, "../../mockData/mockCountryPathKeys.json");
+} else {
+  jsonPath = path.resolve(__dirname, "./countryPathKeys.json");
 }
-main(true);
+
+const pathKeys: pathKey[] = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
+
+(async () => {
+  try {
+    console.log("Running scraper once at", new Date().toISOString());
+
+    await runScraperForAllCountries(pathKeys);
+
+    console.log("Scraper finished successfully");
+  } catch (err) {
+    console.error("Scraper failed", err);
+  }
+})();
