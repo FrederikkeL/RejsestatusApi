@@ -1,25 +1,26 @@
 # TravelStatusAPI
 
-The travelStatusAPI \_\_\_ the travel status from the foreign ministerium in Denmark.
+The travelStatusAPI returns the travel status from the foreign ministerium in Denmark.
 The response is formatted as metadata and a list of countries:
 
 ```
+
 {
-  "httpCode": 200,
-  "retrievedTime": "10.12.2025, 13.12.38",
+  "retrievedTime": "5.1.2026, 14.32.30",
   "version": "1.0.0",
   "countries": [
     {
-      "httpCodeUM": 204,
-      "errorMessage": "No travel advice available for Albania."
+      "httpCodeUM": 404,
+      "errorMessage": "No travel advice available for Andorra."
     },
     {
       "httpCodeUM": 404,
-      "errorMessage": "Travel advice for Azores not found (404)."
+      "errorMessage": "Country is not registered on Ministry of Foreign Affairs' website so there is no available travel advice for Azores."
     },
     {
       "httpCodeUM": 200,
       "country": "Belgien",
+      "pathKey": "belgien",
       "updatedDateUM": "11.11.2025",
       "updatedTimeUM": "15.51",
       "travelStatuses": [
@@ -33,6 +34,7 @@ The response is formatted as metadata and a list of countries:
 {
       "httpCodeUM": 200,
       "country": "Tyrkiet",
+      "pathKey": "tyrkiet",
       "updatedDateUM": "08.12.2025",
       "updatedTimeUM": "14.08",
       "travelStatuses": [
@@ -43,7 +45,7 @@ The response is formatted as metadata and a list of countries:
         },
         {
           "travelStatus": "medium",
-          "headingText": "Vi fraråder alle ikke-nødvendige rejser til: De sydøstlige provinser Hatay, Kilis, Sirnak og Hakkari.",
+          "headingText": "Vi fraråder alle ikke-nødvendige rejser til: De sydøstlige provinser Hatay, Kilis, Sirnak og Hakkari.",
           "contentText": "Risiciene er så alvorlige, at du bør have særlige grunde til at besøge området/landet. Vigtige forretningsrejser og presserende familiebegivenheder kan få rejsende til at vurdere, at et besøg er nødvendigt."
         },
         {
@@ -124,18 +126,21 @@ A postman test suite can be found [here](https://travelstatusapi.postman.co/work
 
 ## Testdata
 
-We have a mock folder that our methods can use. In Cron shceduler can the second parameter be set to true for use mock and false to not use mock.
+We have a mock folder that our methods can use. To run the scraber with mockData, you have two options
+
+using pure mockData:
+
+``
+run scrape:mock
 
 ```
 
-using mock:
-function runScraperHourly(countryCode: string) {
-  return extractTravelStatus(countryCode, true);
-}
+using limited list of pathkeys showcasing all different scenarios:
 
-not using mock:
-function runScraperHourly(countryCode: string) {
-  return extractTravelStatus(countryCode, false);
-}
+```
+
+run scrape:limited
+
+```
 
 ```
