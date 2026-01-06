@@ -1,5 +1,6 @@
 import app from "./src/routes/travelStatusAPI/app";
 import router from "./src/routes/travelStatusAPI/travelStatusRoutes";
+import "../scheduler/scraperScheduler";
 
 app.use("/travelstatus", router);
 
