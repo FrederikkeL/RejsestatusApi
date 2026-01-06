@@ -18,9 +18,7 @@ cron.schedule("30 * * * * *", async () => {
   runScraperForAllCountries(pathKeys);
 });
 
-export async function runScraperForAllCountries(
-  pathKeys: pathKey[],
-) {
+export async function runScraperForAllCountries(pathKeys: pathKey[]) {
   const countryListResponse: CountryListResponse = {
     retrievedTime: new Date().toLocaleString("da-DK", {
       timeZone: "Europe/Copenhagen",
