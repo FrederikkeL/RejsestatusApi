@@ -130,7 +130,8 @@ We have a mock folder that our methods can use. To run the scraber with mockData
 
 using pure mockData:
 
-``
+```
+
 run scrape:mock
 
 ```
@@ -140,7 +141,5 @@ using limited list of pathkeys showcasing all different scenarios:
 ```
 
 run scrape:limited
-
-```
 
 ```
