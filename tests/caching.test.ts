@@ -11,7 +11,7 @@ describe("caching.ts", () => {
   };
 
   afterEach(() => {
-    jest.restoreAllMocks(); // Cleanly restores real fs functions
+    jest.restoreAllMocks();
   });
 
   it("should successfully cache data (writeFile)", async () => {
