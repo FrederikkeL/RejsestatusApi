@@ -5,6 +5,7 @@ import {
 import * as helpers from "../src/helpers/pathKeysHelpers";
 import fs from "fs";
 import type { Request, Response } from "express";
+import * as caching from "../src/caching/caching";
 
 jest.mock("fs");
 jest.mock("../src/helpers/pathKeysHelpers");
@@ -46,6 +47,10 @@ describe("Travel Status Controller", () => {
         errorMessage: "No path keys available to run the scraper.",
       };
 
+      // 1. Tell Jest that the file "exists"
+      (fs.existsSync as jest.Mock).mockReturnValue(true);
+
+      // 2. Provide the "file content"
       (fs.readFileSync as jest.Mock).mockReturnValue(JSON.stringify(mockData));
 
       await getAllTravelStatuses(mockReq as Request, mockRes as Response);
@@ -67,9 +72,9 @@ describe("Travel Status Controller", () => {
     });
 
     it("should return 500 when the file system fails to read the file", async () => {
-      (fs.readFileSync as jest.Mock).mockImplementationOnce(() => {
-        throw new Error("Cache read failure");
-      });
+      jest
+        .spyOn(caching, "getCachedData")
+        .mockRejectedValueOnce(new Error("Cache read failure"));
 
       await getAllTravelStatuses(mockReq as Request, mockRes as Response);
 

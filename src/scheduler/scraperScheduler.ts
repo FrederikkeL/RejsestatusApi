@@ -28,8 +28,6 @@ export async function runScraperForAllCountries(pathKeys: pathKey[]) {
     return;
   }
 
-  countryListResponse.errorMessage = undefined;
-
   const maxRetries = 3;
 
   for (const pathKey of pathKeys) {
@@ -45,8 +43,8 @@ export async function runScraperForAllCountries(pathKeys: pathKey[]) {
     countryListResponse.retrievedTime = new Date().toLocaleString("da-DK", {
       timeZone: "Europe/Copenhagen",
     });
-    await
-    cacheJSON(countryListResponse);
+    countryListResponse.errorMessage = undefined;
+    await cacheJSON(countryListResponse);
   }
 }
 
