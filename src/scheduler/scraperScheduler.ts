@@ -49,7 +49,6 @@ export async function runScraperForAllCountries(pathKeys: pathKey[]) {
     }
     countryListResponse.countries.push(country);
   }
-  console.log(countryListResponse);
   if (validateTravelStatuses(countryListResponse.countries)) {
     cacheJSON(countryListResponse);
   }

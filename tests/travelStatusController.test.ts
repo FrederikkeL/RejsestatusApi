@@ -27,12 +27,12 @@ describe("Travel Status Controller", () => {
   });
 
   describe("getAllTravelStatuses", () => {
-    it("should return 404 if data file is empty or missing", () => {
+    it("should return 404 if data file is empty or missing", async () => {
       (fs.readFileSync as jest.Mock).mockReturnValue(
         JSON.stringify({ countries: [] }),
       );
 
-      getAllTravelStatuses(mockReq as Request, mockRes as Response);
+      await getAllTravelStatuses(mockReq as Request, mockRes as Response);
 
       expect(mockRes.status).toHaveBeenCalledWith(404);
       expect(mockRes.json).toHaveBeenCalledWith({
@@ -40,7 +40,7 @@ describe("Travel Status Controller", () => {
       });
     });
 
-    it("should return the specific pathkeys missing message when errorMessage includes 'No path keys'", () => {
+    it("should return the specific pathkeys missing message when errorMessage includes 'No path keys'", async () => {
       const mockData = {
         countries: [],
         errorMessage: "No path keys available to run the scraper.",
@@ -48,7 +48,7 @@ describe("Travel Status Controller", () => {
 
       (fs.readFileSync as jest.Mock).mockReturnValue(JSON.stringify(mockData));
 
-      getAllTravelStatuses(mockReq as Request, mockRes as Response);
+      await getAllTravelStatuses(mockReq as Request, mockRes as Response);
 
       expect(mockRes.status).toHaveBeenCalledWith(404);
       expect(mockRes.json).toHaveBeenCalledWith({
@@ -56,22 +56,22 @@ describe("Travel Status Controller", () => {
       });
     });
 
-    it("should return 200 and data when file exists", () => {
+    it("should return 200 and data when file exists", async () => {
       const mockData = { countries: [{ country: "Finland" }] };
       (fs.readFileSync as jest.Mock).mockReturnValue(JSON.stringify(mockData));
 
-      getAllTravelStatuses(mockReq as Request, mockRes as Response);
+      await getAllTravelStatuses(mockReq as Request, mockRes as Response);
 
       expect(mockRes.status).toHaveBeenCalledWith(200);
       expect(mockRes.json).toHaveBeenCalledWith(mockData);
     });
 
-    it("should return 500 when the file system fails to read the file", () => {
+    it("should return 500 when the file system fails to read the file", async () => {
       (fs.readFileSync as jest.Mock).mockImplementationOnce(() => {
         throw new Error("Cache read failure");
       });
 
-      getAllTravelStatuses(mockReq as Request, mockRes as Response);
+      await getAllTravelStatuses(mockReq as Request, mockRes as Response);
 
       expect(mockRes.status).toHaveBeenCalledWith(500);
       expect(mockRes.json).toHaveBeenCalledWith({

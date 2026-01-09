@@ -7,19 +7,30 @@ import {
   CountryListResponse,
   CountryResponse,
 } from "../../../types/travelStatusReponse";
-import { getCachedData } from "../../helpers/cachedDataHelpers";
+import { getCachedData } from "../../caching/caching";
 
-export const getAllTravelStatuses = (req: Request, res: Response) => {
+export const getAllTravelStatuses = async (req: Request, res: Response) => {
   try {
-    const countryListResponse: CountryListResponse = getCachedData();
+    const countryListResponse: CountryListResponse = await getCachedData();
 
     if (!countryListResponse || countryListResponse.countries.length === 0) {
-      const isPathKeyError =
-        countryListResponse?.errorMessage?.includes("No path keys");
+      const errorMessage = countryListResponse?.errorMessage ?? "";
+
+      const errorMap = [
+        {
+          match: "No path keys",
+          message: "Travel statuses unavailable: pathkeys missing.",
+        },
+        {
+          match: "Cached data deleted due to expiration",
+          message: "Travel statuses unavailable: cached data has expired.",
+        },
+      ];
+
+      const mappedError = errorMap.find((e) => errorMessage.includes(e.match));
+
       return res.status(404).json({
-        message: isPathKeyError
-          ? "Travel statuses unavailable: pathkeys missing."
-          : "Travel statuses are not available.",
+        message: mappedError?.message ?? "Travel statuses are not available.",
       });
     }
 
@@ -35,7 +46,7 @@ export const getAllTravelStatuses = (req: Request, res: Response) => {
 
 export const getTravelStatusByCountry = async (req: Request, res: Response) => {
   const country = findDanishNameByCode(req.params.country);
-  const countryListResponse: CountryListResponse = getCachedData();
+  const countryListResponse: CountryListResponse = await getCachedData();
 
   const countryResponse: CountryResponse = countryListResponse.countries.find(
     (ts) => ts.country?.toLowerCase() === country?.toLowerCase(),
