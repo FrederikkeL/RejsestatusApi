@@ -37,9 +37,33 @@ export async function deleteCachedData() {
 }
 
 export async function getCachedData(): Promise<CountryListResponse> {
-  const content = JSON.parse(fsSync.readFileSync(dataPath, "utf-8"));
-  if (!content) {
-    throw new Error("No cached data found");
+  try {
+    if (!fsSync.existsSync(dataPath)) {
+      return createEmptyResponse("No cache file exists");
+    }
+
+    const rawContent = fsSync.readFileSync(dataPath, "utf-8");
+    const content = JSON.parse(rawContent);
+
+    if (!content || !Array.isArray(content.countries)) {
+      return createEmptyResponse("Cached data is malformed or empty");
+    }
+
+    return content as CountryListResponse;
+  } catch (error) {
+    return createEmptyResponse(
+      "Error reading or parsing cache. " + error.message,
+    );
   }
-  return content as CountryListResponse;
+}
+
+function createEmptyResponse(message: string): CountryListResponse {
+  return {
+    retrievedTime: new Date().toLocaleString("da-DK", {
+      timeZone: "Europe/Copenhagen",
+    }),
+    errorMessage: message,
+    version: "1.0.0",
+    countries: [],
+  };
 }
