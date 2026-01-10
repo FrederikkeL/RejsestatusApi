@@ -11,7 +11,7 @@ import { cacheJSON, getCachedData } from "../caching/caching";
 
 const jsonPath = path.resolve(__dirname, "../scraper/countryPathKeys.json");
 
-cron.schedule("* * * * *", async () => {
+cron.schedule("0 * * * *", async () => {
   //"* * * * *" for every minute
   //"0 * * * *" for every hour at minute 0
   const pathKeys: pathKey[] = getPathKeys();
