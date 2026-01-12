@@ -29,6 +29,7 @@ export async function runScraperForAllCountries(pathKeys: pathKey[]) {
   }
 
   const maxRetries = 3;
+  const countries: CountryResponse[] = [];
 
   for (const pathKey of pathKeys) {
     let country;
@@ -36,10 +37,11 @@ export async function runScraperForAllCountries(pathKeys: pathKey[]) {
       country = await extractTravelStatus(pathKey.code);
       if (country.httpCodeUM !== 500) break;
     }
-    countryListResponse.countries.push(country);
+    countries.push(country);
   }
 
-  if (validateTravelStatuses(countryListResponse.countries)) {
+  if (validateTravelStatuses(countries)) {
+    countryListResponse.countries = countries;
     countryListResponse.retrievedTime = new Date().toLocaleString("da-DK", {
       timeZone: "Europe/Copenhagen",
     });
